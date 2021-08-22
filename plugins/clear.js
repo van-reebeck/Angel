@@ -6,10 +6,10 @@ let Lang = Language.getString('unvoice');
 
 WhatsAlexa.addCommand({pattern: 'clear', fromMe: true, desc: Lang.CLR_DESC}, (async (message, match) => {
 
-    await message.sendMessage(Lang.CLR_PROC);
+    await message.client.sendMessage(message.jid, Lang.CLR_PROC, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
 
     await message.client.modifyChat(message.jid, ChatModification.delete);
 
-    await message.sendMessage(Lang.CLR_DONE);
+    await message.client.sendMessage(message.jid, Lang.CLR_DONE, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
 
 }));
