@@ -18,7 +18,7 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (match[1] === '') return await message.sendMessage(Lang.LİNK);
+        if (match[1] === '') return await message.sendMessage(message.jid, Lang.LİNK, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
 
         var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
 
@@ -36,7 +36,7 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (match[1] === '') return await message.sendMessage(Lang.LİNK);
+        if (match[1] === '') return await message.sendMessage(message.jid, Lang.LİNK, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
 
         var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
 
