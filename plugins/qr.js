@@ -12,7 +12,7 @@ if (Config.WORKTYPE == 'private') {
     
     WhatsAlexa.addCommand({pattern: 'qr ?(.*)', fromMe: true, desc: Lang.QR_DESC}, (async (message, match) => {
 
-        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+        if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
 
         var webimage = await axios.get(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${match[1].replace(/#/g, '\n')} `, { responseType: 'arraybuffer' })
 
@@ -24,7 +24,7 @@ else if (Config.WORKTYPE == 'public') {
     
     WhatsAlexa.addCommand({pattern: 'qr ?(.*)', fromMe: false, desc: Lang.QR_DESC}, (async (message, match) => {
 
-        if (match[1] === '') return await message.sendMessage(Lang.NEED_WORD);
+        if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
 
         var webimage = await axios.get(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${match[1].replace(/#/g, '\n')} `, { responseType: 'arraybuffer' })
 
