@@ -82,12 +82,12 @@ There are **50+** Features/Commands Are there in **this bot!** You can see **all
 
 - **Alexa** Voice chat & the name **we used is just an imagination name, purposely we are not using any names of people.** Also we are not using the **[Amazon Alexa Voice Chat.](https://developer.amazon.com/en-US/alexa)** We are just using the **[google text to speech](https://cloud.google.com/text-to-speech/?utm_source=google&utm_medium=cpc&utm_campaign=japac-IN-all-en-dr-bkws-all-pkws-trial-e-dr-1009882&utm_content=text-ad-none-none-DEV_c-CRE_497186278768-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20AI%20%26%20ML%20~%20Text-to-Speech_Global%20gap%20analysis-KWID_43700060670685236-kwd-19019442714&userloc_9050518-network_g&utm_term=KW_google%20text%20to%20speech&gclid=Cj0KCQjwvO2IBhCzARIsALw3ASqF1TFpwCt-n-JLw4sBDmCtkWyH8OMmgtbkG2PAJwyfJH6ocFmzzy4aAv3NEALw_wcB&gclsrc=aw.ds)** for some of the conversations.
 
-## Developers & Contributors
+## 👨‍💻 Developers & Contributors 👨‍💻
 
  [![TOXIC-DEVIL](https://github.com/TOXIC-DEVIL.png?size=100)](https://github.com/TOXIC-DEVIL) |  
 ----|
-[TOXIC-DEVIL](https://github.com/farhan-dqz)  |
-Base, Author, Bug Fixes, Modules | 
+[TOXIC-DEVIL](https://github.com/TOXIC-DEVIL)  |
+Author: Developer, Base, Bug Fixes, Commits, Modules | 
 
 ## ✨ Special Features ✨
 
