@@ -26,7 +26,9 @@
 >+ node alexa.js
 ```
 
-## 💫 Deploy WhatsAlexa on Heroku 💫
+## 💫 Deploy & Run WhatsAlexa 💫
+
+[![Run on Repl.it](https://repl.it/badge/github/TOXIC-DEVIL/WhatsAlexa)](https://replit.com/@TOXICDEVIL/WhatsAlexa-QR)
 
 [![Deploy-WhatsAlexa](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TOXIC-DEVIL/WhatsAlexa)
 
