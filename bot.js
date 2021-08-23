@@ -286,16 +286,16 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
     conn.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
 
-        if (config.BOT_STATUS == 'offline') {
+        if (config.BOT_PRESENCE == 'offline') {
             await conn.updatePresence(msg.key.remoteJid, Presence.unavailable);
         
-        } else if (config.BOT_STATUS == 'online') {
+        } else if (config.BOT_PRESENCE == 'online') {
             await conn.updatePresence(msg.key.remoteJid, Presence.available);
         
-        } else if (config.BOT_STATUS == 'typing') {
+        } else if (config.BOT_PRESENCE == 'typing') {
             await conn.updatePresence(msg.key.remoteJid, Presence.composing);
         
-        } else if (config.BOT_STATUS == 'recording') {
+        } else if (config.BOT_PRESENCE == 'recording') {
             await conn.updatePresence(msg.key.remoteJid, Presence.recording);
         } 
         
