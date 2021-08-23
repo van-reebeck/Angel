@@ -16,13 +16,13 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
         
         var uri = encodeURI(match[1]);
 
         var ttinullimage = await axios.get('https://api.xteam.xyz/ttp?file&text=' + uri, { responseType: 'arraybuffer' })
 
-        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '*Made by WhatsAlexa*' })
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, caption: '*Made by WhatsAlexa*' })
 
     }));
 
@@ -34,25 +34,25 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
         
         var uri = encodeURI(match[1]);
 
         var ttinullimage = await axios.get('https://api.xteam.xyz/attp?file&text=' + uri, { responseType: 'arraybuffer' })
 
-        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp })
 
     }));
     
     WhatsAlexa.addCommand({pattern: 'emoji ?(.*)', fromMe: true, desc: Lang.EMOJI_DESC}, (async (message, match) => {
 
-      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
         
       var uri = encodeURI(match[1]);
   
       var ttinullimage = await axios.get('https://api.zeks.xyz/api/emoji-image?apikey=odsMYXx67ZhT38w5hp5mgRKO8En&emoji='+ uri, { responseType: 'arraybuffer' })
   
-      await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '*Made By WhatsAlexa*'})
+      await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, caption: '*Made By WhatsAlexa*'})
   
     }));
 }
@@ -66,13 +66,13 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
         
         var uri = encodeURI(match[1]);
 
         var ttinullimage = await axios.get('https://api.xteam.xyz/ttp?file&text=' + uri, { responseType: 'arraybuffer' })
 
-        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '*Made by WhatsAlexa*' })
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, caption: '*Made by WhatsAlexa*' })
 
     }));
 
@@ -84,25 +84,25 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
         
         var uri = encodeURI(match[1]);
 
         var ttinullimage = await axios.get('https://api.xteam.xyz/attp?file&text=' + uri, { responseType: 'arraybuffer' })
 
-        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.sticker, { mimetype: Mimetype.webp })
 
     }));
     
     WhatsAlexa.addCommand({pattern: 'emoji ?(.*)', fromMe: false, desc: Lang.EMOJI_DESC}, (async (message, match) => {
 
-      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
         
       var uri = encodeURI(match[1]);
   
       var ttinullimage = await axios.get('https://api.zeks.xyz/api/emoji-image?apikey=odsMYXx67ZhT38w5hp5mgRKO8En&emoji='+ uri, { responseType: 'arraybuffer' })
   
-      await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '*Made By WhatsAlexa*'})
+      await message.client.sendMessage(message.jid,Buffer.from(ttinullimage.data), MessageType.image, { mimetype: Mimetype.jpg, caption: '*Made By WhatsAlexa*'})
   
     }));
 }
