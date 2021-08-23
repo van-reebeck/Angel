@@ -90,7 +90,7 @@ WhatsAlexa.addCommand({pattern: 'afk ?(.*)', fromMe: true, deleteCommand: false,
         if (match[1] !== '') { AFK.reason = match[1]; }
         AFK.isAfk = true;
 
-        await message.client.sendMessage(message.jid,Lang.IM_AFK + (AFK.reason !== false ? ('\n*' + Lang.REASON +':* ```' + AFK.reason + '```') : ''),MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,Lang.IM_AFK + (AFK.reason !== false ? ('\n*' + Lang.REASON +':* ```' + AFK.reason + '```') : ''),MessageType.text, {quoted: message.data});
     }
 }));
 
