@@ -127,7 +127,7 @@
             "BOT_DIVIDER": ":",
             "NOT_FOUND_RESPONSE": "```Bot Namun Tidak Ditanggapi!! 😖```",
             "INVALID_REQ": "*Permintaan Tidak Valid.*",
-            "INFO_BOT": "Menampilkan detail/informasi bot."
+            "DISABLED": "```Lydia telah dinonaktifkan untuk pengguna ini!```"
         },
         "profile": {
             "KICKME_DESC": "Menendangmu Keluar dari grup!",

@@ -21,8 +21,8 @@
             "required": true,
             "value": "EN"
         },
-        "BOT_PRESENCE": {
-            "description": "Type the Presence of bot, presences: online => Always Shows the online, offline => Always Shows offline, typing => Always Shows typing, recording => Always Shows recording.. NOTE : THE PRESENCE WILL BE PERMANENT, UNTIL THE BOT IS ALIVE / RUNNING / WORKING",
+        "BOT_STATUS": {
+            "description": "Type the status of bot, statuses: online => Always Shows the online, offline => Always Shows offline, typing => Always Shows typing, recording => Always Shows recording.. NOTE : THE STATUS WILL BE PERMANENT, UNTIL THE BOT IS ALIVE / RUNNING / WORKING",
             "required": false,
             "value": "offline"
         },
@@ -41,8 +41,8 @@
             "required": true,
             "value": "^[#]"
         },
-        "AUTO_BIO": {
-            "description": "Changes your bio automaticly to a Time clock.",
+        "NO_LOG": {
+            "description": "Set true if you don't want to see error log.",
             "required": true,
             "value": "false"
         },

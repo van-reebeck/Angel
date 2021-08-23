@@ -7,11 +7,11 @@ let Lang = Language.getString('profile');
 
 WhatsAlexa.addCommand({pattern: 'kickme', fromMe: true, desc: Lang.KICKME_DESC, onlyGroup: true}, (async (message, match) => {
     if (Config.KICKMEMSG == 'default') { 
-        await message.client.sendMessage(message.jid,Lang.KICKME,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,Lang.KICKME,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         await message.client.groupLeave(message.jid);
     }
     else {
-        await message.client.sendMessage(message.jid,Config.KICKMEMSG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,Config.KICKMEMSG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         await message.client.groupLeave(message.jid);
     }
 }));
@@ -19,7 +19,7 @@ WhatsAlexa.addCommand({pattern: 'kickme', fromMe: true, desc: Lang.KICKME_DESC, 
 WhatsAlexa.addCommand({pattern: 'pp', fromMe: true, desc: Lang.PP_DESC}, (async (message, match) => {    
     if (message.reply_message === false || message.reply_message.image === false) return await message.client.sendMessage(message.jid,Lang.NEED_PHOTO);
     
-    var load = await message.client.sendMessage(message.jid,Lang.PPING,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+    var load = await message.client.sendMessage(message.jid,Lang.PPING,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
     var location = await message.client.downloadAndSaveMediaMessage({
         key: {
             remoteJid: message.reply_message.jid,
@@ -88,7 +88,7 @@ if (Config.WORKTYPE == 'private') {
                 });    
             });
         } else {
-            await message.client.sendMessage(message.jid, Lang.JID_CHAT.format(message.jid), MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            await message.client.sendMessage(message.jid, Lang.JID_CHAT.format(message.jid), MessageType.text);
         }
     }));
 }
@@ -106,7 +106,7 @@ else if (Config.WORKTYPE == 'public') {
                 });    
             });
         } else {
-            await message.client.sendMessage(message.jid, Lang.JID_CHAT.format(message.jid), MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            await message.client.sendMessage(message.jid, Lang.JID_CHAT.format(message.jid), MessageType.text);
         }
     }));
 }
