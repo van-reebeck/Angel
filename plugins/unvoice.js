@@ -17,8 +17,8 @@ if (Config.WORKTYPE == 'private') {
             return;
         }
 
-        if (message.reply_message === false) return await message.sendMessage(Lang.UV_REPLY);
-        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UV_REPLY, MesssageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -43,8 +43,8 @@ if (Config.WORKTYPE == 'private') {
             return;
         }
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -71,8 +71,8 @@ else if (Config.WORKTYPE == 'public') {
             return;
         }
 
-        if (message.reply_message === false) return await message.sendMessage(Lang.UV_REPLY);
-        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UV_REPLY, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -97,8 +97,8 @@ else if (Config.WORKTYPE == 'public') {
             return;
         }
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
