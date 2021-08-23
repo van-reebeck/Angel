@@ -18,11 +18,11 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (match[1] === '') return await message.sendMessage(message.jid, Lang.LİNK, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+        if (match[1] === '') return await message.sendMessage(message.jid, Lang.LİNK, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
 
         var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
 
-        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: '*Made by WhatsAlexa*'})
+        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '*Made by WhatsAlexa*'})
 
     }));
 }
@@ -36,11 +36,11 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (match[1] === '') return await message.sendMessage(message.jid, Lang.LİNK, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+        if (match[1] === '') return await message.sendMessage(message.jid, Lang.LİNK, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
 
         var webimage = await axios.get(`https://screenshotapi.net/api/v1/screenshot?url=${match[1]}&output=image&full_page=true`, { responseType: 'arraybuffer' })
 
-        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: '*Made by WhatsAlexa*'})
+        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '*Made by WhatsAlexa*'})
 
     }));
 }
