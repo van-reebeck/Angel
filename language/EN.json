@@ -120,7 +120,7 @@
             "BOT_DIVIDER": ":",
             "NOT_FOUND_RESPONSE": "```Bot Yet Not Responded! 😖```",
             "INVALID_REQ": "*Invalid Request.*",
-            "DISABLED": "```Lydia has been disabled for this user!```"
+            "INFO_BOT": "Shows the details/informations of the bot."
         },
         "profile": {
             "KICKME_DESC": "It kicks you from the group you are using it in.",

@@ -16,8 +16,8 @@ WhatsAlexa.addCommand({pattern: 'update$', fromMe: true, desc: Lang.UPDATER_DESC
     if (commits.total === 0) {
         await message.client.sendMessage(
             message.jid,
-            Lang.UPDATE, MessageType.text
-        );    
+            Lang.UPDATE, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+        })   
     } else {
         var degisiklikler = Lang.NEW_UPDATE;
         commits['all'].map(
@@ -28,8 +28,8 @@ WhatsAlexa.addCommand({pattern: 'update$', fromMe: true, desc: Lang.UPDATER_DESC
 
         await message.client.sendMessage(
             message.jid,
-            degisiklikler + '```', MessageType.text
-        ); 
+            degisiklikler + '```', MessageType.text, { contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+        })
     }
 }));
 
@@ -39,8 +39,8 @@ WhatsAlexa.addCommand({pattern: 'update now$', fromMe: true, desc: Lang.UPDATE_N
     if (commits.total === 0) {
         return await message.client.sendMessage(
             message.jid,
-            Lang.UPDATE, MessageType.text
-        );    
+            Lang.UPDATE, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+        }) 
     } else {
         var guncelleme = await message.reply(Lang.UPDATING);
         if (Config.HEROKU.HEROKU) {
@@ -48,7 +48,7 @@ WhatsAlexa.addCommand({pattern: 'update now$', fromMe: true, desc: Lang.UPDATE_N
                 var app = await heroku.get('/apps/' + Config.HEROKU.APP_NAME)
             } catch {
                 return await message.client.sendMessage(
-                    message.jid,Lang.INVALID_HEROKU, MessageType.text);
+                    message.jid,Lang.INVALID_HEROKU, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
             }
 
             git.fetch('upstream', Config.BRANCH);
@@ -64,19 +64,19 @@ WhatsAlexa.addCommand({pattern: 'update now$', fromMe: true, desc: Lang.UPDATE_N
             await git.push('heroku', Config.BRANCH);
 
             await message.client.sendMessage(
-                message.jid,Lang.UPDATED, MessageType.text);
+                message.jid,Lang.UPDATED, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
 
-            await message.sendMessage(Lang.AFTER_UPDATE);
+            await message.sendMessage(message.jid, Lang.AFTER_UPDATE, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
 
         } else {
             git.pull((async (err, update) => {
                 if(update && update.summary.changes) {
                     await message.client.sendMessage(
-                        message.jid,Lang.UPDATED_LOCAL, MessageType.text);
+                        message.jid,Lang.UPDATED_LOCAL, MessageType.text, { contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
                     exec('npm install').stderr.pipe(process.stderr);
                 } else if (err) {
                     await message.client.sendMessage(
-                        message.jid,'*❌ An Error Occurred!*\n*Error:* ```' + err + '```', MessageType.text);
+                        message.jid,'*❌ An Error Occurred!*\n*Error:* ```' + err + '```', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
                 }
             }));
             await guncelleme.delete();
