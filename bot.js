@@ -66,7 +66,7 @@ async function Alexa () {
     
     var biography_var = ''
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
-        biography_var = vars.AUTO_BİO
+        biography_var = vars.AUTO_BIO
     });
     setInterval(async () => { 
         if (biography_var == 'true') {
