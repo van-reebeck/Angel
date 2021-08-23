@@ -25,8 +25,8 @@ if (Config.WORKTYPE == 'private') {
                       var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
                   await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
-              
-     } else if (Config.ALIVE_TYPE == 'text') {
+     } 
+     else if (Config.ALIVE_TYPE == 'text') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -35,8 +35,8 @@ if (Config.WORKTYPE == 'private') {
               } else {
                                                
                  await message.client.sendMessage(message.jid, Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
-              
-     } else if (Config.ALIVE_TYPE == 'user dp') {
+     }
+     else if (Config.ALIVE_TYPE == 'user dp') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -51,8 +51,8 @@ if (Config.WORKTYPE == 'private') {
                       try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
               
                   await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' }); });
-              
-     } else if (Config.ALIVE_TYPE == 'alexa image') {
+     } 
+     else if (Config.ALIVE_TYPE == 'alexa image') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -61,8 +61,8 @@ if (Config.WORKTYPE == 'private') {
               } else {
               
                   await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
-              
-     } else if (Config.ALIVE_TYPE == 'alexa gif') {
+     } 
+     else if (Config.ALIVE_TYPE == 'alexa gif') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -104,8 +104,8 @@ else if (Config.WORKTYPE == 'public') {
                       var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
                   await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
-              
-     } else if (Config.ALIVE_TYPE == 'text') {
+     } 
+     else if (Config.ALIVE_TYPE == 'text') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -114,8 +114,8 @@ else if (Config.WORKTYPE == 'public') {
               } else {
                                                
                  await message.client.sendMessage(message.jid, Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
-              
-     } else if (Config.ALIVE_TYPE == 'user dp') {
+     }
+     else if (Config.ALIVE_TYPE == 'user dp') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -130,8 +130,8 @@ else if (Config.WORKTYPE == 'public') {
                       try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
               
                   await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' }); });
-              
-     } else if (Config.ALIVE_TYPE == 'alexa image') {
+     } 
+     else if (Config.ALIVE_TYPE == 'alexa image') {
          
               if (Config.ALIVEMSG == 'default') {
               
@@ -140,8 +140,8 @@ else if (Config.WORKTYPE == 'public') {
               } else {
               
                   await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
-              
-     } else if (Config.ALIVE_TYPE == 'alexa gif') {
+     } 
+     else if (Config.ALIVE_TYPE == 'alexa gif') {
          
               if (Config.ALIVEMSG == 'default') {
               
