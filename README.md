@@ -36,7 +36,7 @@
 
 [![Deploy-WhatsAlexa](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TOXIC-DEVIL/WhatsAlexa)
 
-## ❔ F A Q ( Frequently Asked Questions ) ❔
+## ❔ F A Q ( Frequently Asked Questions. ) ❔
 
 ### 💬 Can you read my messages?
 
