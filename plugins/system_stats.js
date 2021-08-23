@@ -76,7 +76,7 @@ if (Config.WORKTYPE == 'private') {
               
                   await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
             }
-       }));
+       });
 
     WhatsAlexa.addCommand({pattern: 'sysd', fromMe: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
 
@@ -159,7 +159,7 @@ else if (Config.WORKTYPE == 'public') {
               
                   await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
             }
-       }));
+       });
 
     WhatsAlexa.addCommand({pattern: 'sysd', fromMe: false, desc: Lang.SYSD_DESC}, (async (message, match) => {
 
