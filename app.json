@@ -41,8 +41,8 @@
             "required": true,
             "value": "^[#]"
         },
-        "NO_LOG": {
-            "description": "Set true if you don't want to see error log.",
+        "AUTO_BIO": {
+            "description": "Changes your bio automaticly to a Time clock.",
             "required": true,
             "value": "false"
         },
