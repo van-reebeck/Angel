@@ -14,65 +14,65 @@ if (Config.WORKTYPE == 'private') {
         
      if (Config.ALIVE_TYPE == 'custom image') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-                  var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+                      var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-              await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
             
-          } else {
+              } else {
               
-                  var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+                      var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-              await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
               
      } else if (Config.ALIVE_TYPE == 'text') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-              await message.client.sendMessage(message.jid, '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+                  await message.client.sendMessage(message.jid, '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
                                                
-          } else {
+              } else {
                                                
-             await message.client.sendMessage(message.jid, Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+                 await message.client.sendMessage(message.jid, Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
               
      } else if (Config.ALIVE_TYPE == 'user dp') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-                  let pp
-                  try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
+                      let pp
+                      try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
               
-              await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' }); });
+                  await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' }); });
               
-          } else {
+              } else {
               
-                  let pp
-                  try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
+                      let pp
+                      try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
               
-              await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' }); });
+                  await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' }); });
               
      } else if (Config.ALIVE_TYPE == 'alexa image') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
               
-          } else {
+              } else {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
               
      } else if (Config.ALIVE_TYPE == 'alexa gif') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
               
-          } else {
+              } else {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
-        }
-    }));
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
+            }
+       }));
 
     WhatsAlexa.addCommand({pattern: 'sysd', fromMe: true, desc: Lang.SYSD_DESC}, (async (message, match) => {
 
@@ -93,65 +93,65 @@ else if (Config.WORKTYPE == 'public') {
         
      if (Config.ALIVE_TYPE == 'custom image') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-                  var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+                      var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-              await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
             
-          } else {
+              } else {
               
-                  var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
+                      var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-              await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
               
      } else if (Config.ALIVE_TYPE == 'text') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-              await message.client.sendMessage(message.jid, '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+                  await message.client.sendMessage(message.jid, '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
                                                
-          } else {
+              } else {
                                                
-             await message.client.sendMessage(message.jid, Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+                 await message.client.sendMessage(message.jid, Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*', MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
               
      } else if (Config.ALIVE_TYPE == 'user dp') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-                  let pp
-                  try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
+                      let pp
+                      try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
               
-              await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' }); });
+                  await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' }); });
               
-          } else {
+              } else {
               
-                  let pp
-                  try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
+                      let pp
+                      try { pp = await message.client.getProfilePicture(message.jid.includes('-') ? message.data.participant : message.jid ); } catch { pp = await message.client.getProfilePicture(); }
               
-              await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' }); });
+                  await axios.get(pp, {responseType: 'arraybuffer'}).then(async (res) => { await message.client.sendMessage(message.jid, res.data, MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' }); });
               
      } else if (Config.ALIVE_TYPE == 'alexa image') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
               
-          } else {
+              } else {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
               
      } else if (Config.ALIVE_TYPE == 'alexa gif') {
          
-          if (Config.ALIVEMSG == 'default') {
+              if (Config.ALIVEMSG == 'default') {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' });
               
-          } else {
+              } else {
               
-              await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
-        }
-    }));
+                  await message.client.sendMessage(message.jid, fs.readFileSync("./src/video-&-gif/WhatsAlexa.mp4"), MessageType.video, {mimetype: Mimetype.gif, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' });
+            }
+       }));
 
     WhatsAlexa.addCommand({pattern: 'sysd', fromMe: false, desc: Lang.SYSD_DESC}, (async (message, match) => {
 
