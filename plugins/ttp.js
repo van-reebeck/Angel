@@ -16,7 +16,7 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         
         var uri = encodeURI(match[1]);
 
@@ -34,7 +34,7 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         
         var uri = encodeURI(match[1]);
 
@@ -46,7 +46,7 @@ if (Config.WORKTYPE == 'private') {
     
     WhatsAlexa.addCommand({pattern: 'emoji ?(.*)', fromMe: true, desc: Lang.EMOJI_DESC}, (async (message, match) => {
 
-      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
+      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         
       var uri = encodeURI(match[1]);
   
@@ -66,7 +66,7 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         
         var uri = encodeURI(match[1]);
 
@@ -84,7 +84,7 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         
         var uri = encodeURI(match[1]);
 
@@ -96,7 +96,7 @@ else if (Config.WORKTYPE == 'public') {
     
     WhatsAlexa.addCommand({pattern: 'emoji ?(.*)', fromMe: false, desc: Lang.EMOJI_DESC}, (async (message, match) => {
 
-      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text);
+      if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORD, MessageType.text, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
         
       var uri = encodeURI(match[1]);
   
