@@ -18,8 +18,8 @@ if (Config.WORKTYPE == 'private') {
         }
 
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(message.jid,Lang.DOWNLOADING,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+        var downloading = await message.client.sendMessage(message.jid,Lang.DOWNLOADING,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -34,7 +34,7 @@ if (Config.WORKTYPE == 'private') {
                     throw err;
                 }
         
-                await message.sendMessage(fs.readFileSync('./output.webp'), MessageType.sticker);
+                await message.sendMessage(fs.readFileSync('./output.webp'), MessageType.sticker, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
             });
             return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
         }
@@ -43,7 +43,7 @@ if (Config.WORKTYPE == 'private') {
             .outputOptions(["-y", "-vcodec libwebp", "-lossless 1", "-qscale 1", "-preset default", "-loop 0", "-an", "-vsync 0", "-s 512x512"])
             .save('sticker.webp')
             .on('end', async () => {
-                await message.sendMessage(fs.readFileSync('sticker.webp'), MessageType.sticker);
+                await message.sendMessage(fs.readFileSync('sticker.webp'), MessageType.sticker, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
@@ -58,8 +58,8 @@ else if (Config.WORKTYPE == 'public') {
         }
 
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text);
-        var downloading = await message.client.sendMessage(message.jid,Lang.DOWNLOADING,MessageType.text);
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
+        var downloading = await message.client.sendMessage(message.jid,Lang.DOWNLOADING,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -74,7 +74,7 @@ else if (Config.WORKTYPE == 'public') {
                     throw err;
                 }
         
-                await message.sendMessage(fs.readFileSync('./output.webp'), MessageType.sticker);
+                await message.sendMessage(fs.readFileSync('./output.webp'), MessageType.sticker, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
             });
             return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
         }
@@ -83,7 +83,7 @@ else if (Config.WORKTYPE == 'public') {
             .outputOptions(["-y", "-vcodec libwebp", "-lossless 1", "-qscale 1", "-preset default", "-loop 0", "-an", "-vsync 0", "-s 512x512"])
             .save('sticker.webp')
             .on('end', async () => {
-                await message.sendMessage(fs.readFileSync('sticker.webp'), MessageType.sticker);
+                await message.sendMessage(fs.readFileSync('sticker.webp'), MessageType.sticker, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
