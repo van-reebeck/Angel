@@ -16,6 +16,16 @@
             "description": "Leave blank if you don't know how to use it! Dual mode; Your number must be an international number. So you should have your number after the country code. Example: 9199xxxxxxxx ( This is an Example of Indian number +91 )",
             "required": false
         },
+        "ANTI_LINK": {
+            "description": "It makes the bot Antilink.",
+            "required": true,
+            "value": "false"
+        },
+        "ANTI_LINK_TYPE": {
+            "description": "Antilink Types! all => It removes when someone send all link starting with www. & https://. group link => It only removes when someone sends a group link.",
+            "required": true,
+            "value": "all"
+        },
         "LANGUAGE": {
             "description": "Bot languages. Malayalam => ML, Indonesia => ID, English => EN ( Enter any one only )",
             "required": true,
