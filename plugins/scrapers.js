@@ -133,7 +133,7 @@ if (config.WORKTYPE == 'private') {
             return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
 
-        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         var yt = ytdl(arama.videoId, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
         yt.pipe(fs.createWriteStream('./' + arama.videoId + '.mp4'));
@@ -316,7 +316,7 @@ else if (config.WORKTYPE == 'public') {
             return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
 
-        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         var yt = ytdl(arama.videoId, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
         yt.pipe(fs.createWriteStream('./' + arama.videoId + '.mp4'));
