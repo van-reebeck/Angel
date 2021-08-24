@@ -63,28 +63,7 @@ async function Alexa () {
     const conn = new WAConnection();
     const Session = new StringSession();
     conn.version = [2, 2119, 6]
-    setInterval(async () => { 
-        var getGMTh = new Date().getHours()
-        var getGMTm = new Date().getMinutes()
-        await axios.get('https://gist.githubusercontent.com/TOXIC-DEVIL/953568e296087e661f4c10d5af137d87/raw/afb4e0828ab20861dc5bac5d8e7a743077173f7a/announcement.json').then(async (ann) => {
-            const { infoen, infoid, infoml } = ann.data.announcements          
-            if (infoen !== '' && config.LANG == 'EN') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Daily Announcements``` ]\n\n' + infoen.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoml !== '' && config.LANG == 'ML') {
-                while (getGMTh == 19 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```പ്രതിദിന പ്രഖ്യാപനങ്ങൾ``` ]\n\n' + infoml.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-            else if (infoid !== '' && config.LANG == 'ID') {
-                while (getGMTh == 23 && getGMTm == 1) { 
-                    return conn.sendMessage(conn.user.jid, '[ ```Pengumuman Harian``` ]\n\n' + infoid.replace('{user}', conn.user.name).replace('{wa_version}', conn.user.phone.wa_version).replace('{version}', config.VERSION).replace('{os_version}', conn.user.phone.os_version).replace('{device_model}', conn.user.phone.device_model).replace('{device_brand}', conn.user.phone.device_manufacturer), MessageType.text) 
-                }
-            }
-        })
-    }, 50000);
+
     var biography_var = ''
     await heroku.get(baseURI + '/config-vars').then(async (vars) => {
         biography_var = vars.AUTO_BIO
