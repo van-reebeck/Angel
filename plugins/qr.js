@@ -12,11 +12,11 @@ if (Config.WORKTYPE == 'private') {
     
     WhatsAlexa.addCommand({pattern: 'qr ?(.*)', fromMe: true, desc: Lang.QR_DESC}, (async (message, match) => {
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
 
         var webimage = await axios.get(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${match[1].replace(/#/g, '\n')} `, { responseType: 'arraybuffer' })
 
-        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, caption: "Made By WhatsAlexa"})
+        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: "Made By WhatsAlexa"})
         
     }));
 }
@@ -24,11 +24,11 @@ else if (Config.WORKTYPE == 'public') {
     
     WhatsAlexa.addCommand({pattern: 'qr ?(.*)', fromMe: false, desc: Lang.QR_DESC}, (async (message, match) => {
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_WORD, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
 
         var webimage = await axios.get(`https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${match[1].replace(/#/g, '\n')} `, { responseType: 'arraybuffer' })
 
-        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, caption: "Made By WhatsAlexa"})
+        await message.sendMessage(Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: "Made By WhatsAlexa"})
         
     }));
 }

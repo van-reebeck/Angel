@@ -14,7 +14,7 @@ if (Config.WORKTYPE == 'private') {
                 return;
             }
 
-	    if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_LOCATION, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data})
+	    if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_LOCATION, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
 	    const url = `http://api.openweathermap.org/data/2.5/weather?q=${match[1]}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=tr`;
 	    try {
 		    const response = await got(url);
@@ -26,7 +26,7 @@ if (Config.WORKTYPE == 'private') {
 		    '*💨 ' + Lang.WIND +':* ```' + json.wind.speed + 'm/s```\n' + 
 		    '*☁ ' + Lang.CLOUD +':* ```%' + json.clouds.all + '```\n', MessageType.text);
 	    } catch {
-		    return await message.client.sendMessage(message.jid, Lang.NOT_FOUND, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data})
+		    return await message.client.sendMessage(message.jid, Lang.NOT_FOUND, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
 	    }
     });
 }
@@ -39,7 +39,7 @@ if (Config.WORKTYPE == 'public') {
                 return;
             }
 
-	    if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_LOCATION, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data})
+	    if (match[1] === '') return await message.client.sendMessage(message.jid, Lang.NEED_LOCATION, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
 	    const url = `http://api.openweathermap.org/data/2.5/weather?q=${match[1]}&units=metric&appid=060a6bcfa19809c2cd4d97a212b19273&language=tr`;
 	    try {
 		    const response = await got(url);
@@ -51,7 +51,7 @@ if (Config.WORKTYPE == 'public') {
 		    '*💨 ' + Lang.WIND +':* ```' + json.wind.speed + 'm/s```\n' + 
 		    '*☁ ' + Lang.CLOUD +':* ```%' + json.clouds.all + '```\n', MessageType.text);
 	    } catch {
-		    return await message.client.sendMessage(message.jid, Lang.NOT_FOUND, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data})
+		    return await message.client.sendMessage(message.jid, Lang.NOT_FOUND, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data})
 	    }
     });
 }
