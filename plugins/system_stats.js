@@ -16,13 +16,13 @@ if (Config.WORKTYPE == 'private') {
               
                       var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
             
               } else {
               
                       var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
               }
       }));
 
@@ -35,8 +35,8 @@ if (Config.WORKTYPE == 'private') {
 
         const child = spawnSync('neofetch', ['--stdout']).stdout.toString('utf-8')
         await message.sendMessage(
-            '```' + child + '```', MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }
-        })
+            '```' + child + '```', MessageType.text
+        );
     }));
 }
 else if (Config.WORKTYPE == 'public') {
@@ -47,13 +47,13 @@ else if (Config.WORKTYPE == 'public') {
               
                       var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: '```💕 Hey Bro!! I am still alive & kicking 😙```\n\n*Version:* ```'+Config.VERSION+'```\n*Branch:* ```'+Config.BRANCH+'```\n\n*Developer:* TOXIC DEVIL\n\n*Git :* https://github.com/TOXIC-DEVIL/WhatsAlexa.git\n\n```💕 Thank You For Using WhatsAlexa 💞```' })
             
               } else {
               
                       var image = await axios.get(Config.ALIVE_LOGO, {responseType: 'arraybuffer'})
        
-                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
+                  await message.client.sendMessage(message.jid, Buffer.from(image.data), MessageType.image, {mimetype: Mimetype.png, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, caption: Config.ALIVEMSG + '\n\n*POWERED BY WHATSALEXA, MADE BY TOXIC DEVIL*' })
               }
       }));
 
@@ -66,7 +66,7 @@ else if (Config.WORKTYPE == 'public') {
 
         const child = spawnSync('neofetch', ['--stdout']).stdout.toString('utf-8')
         await message.sendMessage(
-            '```' + child + '```', MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }
-        })
+            '```' + child + '```', MessageType.text
+        );
     }));
 }
