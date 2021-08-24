@@ -14,7 +14,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
 WhatsAlexa.addCommand({pattern: 'mentionall', fromMe: true, desc: Lang.TAGALL_DESC}, (async (message, match) => {
 
    var im = await checkImAdmin(message);
-   if (!im) return await message.client.sendMessage(message.jid,Lang.ADMİN,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+   if (!im) return await message.client.sendMessage(message.jid,Lang.ADMİN,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
     grup = await message.client.groupMetadata(message.jid);
     var jids = [];
