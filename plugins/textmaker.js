@@ -29,17 +29,17 @@ let tdc = '*Made By WhatsAlexa*'
         topText = split[0];
 }
 
-    var webimage = await axios.get(`https://xteam.xyz/textpro/glitch?text=${topText}&text2=${bottomText}&APIKEY=ab9942f95c09ca89`, { responseType: 'arraybuffer' })
+    var webimage = await axios.get(`https://docs-jojo.herokuapp.com/api/ttlogo?text1=${topText}&text2=${bottomText}`, { responseType: 'arraybuffer' })
 
    await message.client.sendMessage(message.jid,Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: tdc})
 
     }));
 
-    WhatsAlexa.addCommand({pattern: 'latte ?(.*)', fromMe: td, dontAddCommandList: true}, (async (message, match) => {
+    WhatsAlexa.addCommand({pattern: 'blackpink ?(.*)', fromMe: td, dontAddCommandList: true}, (async (message, match) => {
 
     if (match[1] === '') return await message.client.sendMessage(message.jid,NEED_WORD);
 
-    var webimage = await axios.get(`https://videfikri.com/api/textmaker/coffeecup/?text=${match[1]}`, { responseType: 'arraybuffer' })
+    var webimage = await axios.get(`https://docs-jojo.herokuapp.com/api/blackpink?text=${match[1]}`, { responseType: 'arraybuffer' })
 
     await message.client.sendMessage(message.jid,Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg, caption: tdc})
 
@@ -211,7 +211,7 @@ let tdc = '*Made By WhatsAlexa*'
         topText = split[0];
 }
 
-    var webimage = await axios.get(`https://api.xteam.xyz/textpro/ph?text=${topText}&text2=${bottomText}&APIKEY=ab9942f95c09ca89`, { responseType: 'arraybuffer' })
+    var webimage = await axios.get(`https://docs-jojo.herokuapp.com/api/phblogo?text1=${topText}&text2=${bottomText}`, { responseType: 'arraybuffer' })
 
    await message.client.sendMessage(message.jid,Buffer.from(webimage.data), MessageType.image, {mimetype: Mimetype.jpg , caption: tdc})
 
