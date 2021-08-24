@@ -11,9 +11,18 @@
 
 ## ⚙️ Setup ⚙️
 ```
-$ bash <(curl -L rotf.lol/WhatsAlexa-Toxic-Devil)
+# bash <(curl -L rotf.lol/WhatsAlexa-Toxic-Devil)
 ```
-
+```
+# pkg install git
+# pkg install nodejs
+# git clone https://github.com/TOXIC-DEVIL/WhatsAlexa
+# cd WhatsAlexa
+# npm i @adiwajshing/baileys
+# npm i chalk
+# node alexa.js
+```
+  
 ## 💫 Deploy & Run WhatsAlexa 💫
 
 **If You are Lazy to Download Termux or Concerned About Memory leaks, You can Use Below Button 'Run on Replit' to scan QR Code, Also Laptop/Computer is More Confortable To Scan the QR Code.**
