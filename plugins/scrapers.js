@@ -36,7 +36,7 @@ if (config.WORKTYPE == 'private') {
         }
 
         if (!message.reply_message) {
-            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
 
         ceviri = await translatte(message.reply_message.message, {from: match[1] === '' ? 'auto' : match[1], to: match[2] === '' ? config.LANG : match[2]});
@@ -45,7 +45,7 @@ if (config.WORKTYPE == 'private') {
             + '*◀️ ' + Lang.FROM + '*: ```' + (match[2] === '' ? config.LANG : match[2]) + '```\n'
             + '*🔎 ' + Lang.RESULT + ':* ```' + ceviri.text + '```');
         } else {
-            return await message.client.sendMessage(message.jid,Lang.TRANSLATE_ERROR,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.TRANSLATE_ERROR,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
     }));
 
@@ -87,11 +87,11 @@ if (config.WORKTYPE == 'private') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })    
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })    
         let arama = await yts(match[1]);
         arama = arama.all;
-        if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         let title = arama[0].title.replace(' ', '+');
         let stream = ytdl(arama[0].videoId, {
@@ -113,8 +113,8 @@ if (config.WORKTYPE == 'private') {
                     });
                 writer.addTag();
 
-                reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: false});
+                reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, ptt: false});
             });
     }));
 
@@ -125,12 +125,12 @@ if (config.WORKTYPE == 'private') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })  
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })  
     
         try {
             var arama = await yts({videoId: ytdl.getURLVideoID(match[1])});
         } catch {
-            return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
 
         var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
@@ -139,8 +139,8 @@ if (config.WORKTYPE == 'private') {
         yt.pipe(fs.createWriteStream('./' + arama.videoId + '.mp4'));
 
         yt.on('end', async () => {
-            reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-            await message.client.sendMessage(message.jid,fs.readFileSync('./' + arama.videoId + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+            await message.client.sendMessage(message.jid,fs.readFileSync('./' + arama.videoId + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         });
     }));
 
@@ -151,13 +151,13 @@ if (config.WORKTYPE == 'private') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-        var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         try {
             var arama = await yts(match[1]);
         } catch {
-            return await message.client.sendMessage(message.jid,Lang.NOT_FOUND,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.NOT_FOUND,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
     
         var mesaj = '';
@@ -165,7 +165,7 @@ if (config.WORKTYPE == 'private') {
             mesaj += '*' + video.title + '* - ' + video.url + '\n'
         });
 
-        await message.client.sendMessage(message.jid,mesaj,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,mesaj,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         await reply.delete();
     }));
 
@@ -176,14 +176,14 @@ if (config.WORKTYPE == 'private') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-        var reply = await message.client.sendMessage(message.jid,Lang.SEARCHING,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.SEARCHING,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         var arama = await wiki({ apiUrl: 'https://' + config.LANG + '.wikipedia.org/w/api.php' })
             .page(match[1]);
 
         var info = await arama.rawContent();
-        await message.client.sendMessage(message.jid, info, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid, info, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         await reply.delete();
     }));
 
@@ -194,14 +194,14 @@ if (config.WORKTYPE == 'private') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         gis(match[1], async (error, result) => {
             for (var i = 0; i < (result.length < 5 ? result.length : 5); i++) {
                 var get = got(result[i].url, {https: {rejectUnauthorized: false}});
                 var stream = get.buffer();
                 
                 stream.then(async (image) => {
-                    await message.client.sendMessage(message.jid,image, MessageType.image, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+                    await message.client.sendMessage(message.jid,image, MessageType.image, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
                 });
             }
 
@@ -219,7 +219,7 @@ else if (config.WORKTYPE == 'public') {
         }
 
         if (!message.reply_message) {
-            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.NEED_REPLY,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
 
         ceviri = await translatte(message.reply_message.message, {from: match[1] === '' ? 'auto' : match[1], to: match[2] === '' ? config.LANG : match[2]});
@@ -228,7 +228,7 @@ else if (config.WORKTYPE == 'public') {
             + '*◀️ ' + Lang.FROM + '*: ```' + (match[2] === '' ? config.LANG : match[2]) + '```\n'
             + '*🔎 ' + Lang.RESULT + ':* ```' + ceviri.text + '```');
         } else {
-            return await message.client.sendMessage(message.jid,Lang.TRANSLATE_ERROR,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.TRANSLATE_ERROR,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
     }));
 
@@ -270,11 +270,11 @@ else if (config.WORKTYPE == 'public') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })    
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_TEXT_SONG,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })    
         let arama = await yts(match[1]);
         arama = arama.all;
-        if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if(arama.length < 1) return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         let title = arama[0].title.replace(' ', '+');
         let stream = ytdl(arama[0].videoId, {
@@ -296,8 +296,8 @@ else if (config.WORKTYPE == 'public') {
                     });
                 writer.addTag();
 
-                reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: false});
+                reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_SONG,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+                await message.client.sendMessage(message.jid,Buffer.from(writer.arrayBuffer), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, ptt: false});
             });
     }));
 
@@ -308,12 +308,12 @@ else if (config.WORKTYPE == 'public') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })  
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })  
     
         try {
             var arama = await yts({videoId: ytdl.getURLVideoID(match[1])});
         } catch {
-            return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.NO_RESULT,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
 
         var reply = await message.client.sendMessage(message.jid,Lang.DOWNLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
@@ -322,8 +322,8 @@ else if (config.WORKTYPE == 'public') {
         yt.pipe(fs.createWriteStream('./' + arama.videoId + '.mp4'));
 
         yt.on('end', async () => {
-            reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-            await message.client.sendMessage(message.jid,fs.readFileSync('./' + arama.videoId + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            reply = await message.client.sendMessage(message.jid,Lang.UPLOADING_VIDEO,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+            await message.client.sendMessage(message.jid,fs.readFileSync('./' + arama.videoId + '.mp4'), MessageType.video, {mimetype: Mimetype.mp4, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         });
     }));
 
@@ -334,13 +334,13 @@ else if (config.WORKTYPE == 'public') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-        var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.GETTING_VIDEOS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         try {
             var arama = await yts(match[1]);
         } catch {
-            return await message.client.sendMessage(message.jid,Lang.NOT_FOUND,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            return await message.client.sendMessage(message.jid,Lang.NOT_FOUND,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         }
     
         var mesaj = '';
@@ -348,7 +348,7 @@ else if (config.WORKTYPE == 'public') {
             mesaj += '*' + video.title + '* - ' + video.url + '\n'
         });
 
-        await message.client.sendMessage(message.jid,mesaj,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid,mesaj,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         await reply.delete();
     }));
 
@@ -359,14 +359,14 @@ else if (config.WORKTYPE == 'public') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
-        var reply = await message.client.sendMessage(message.jid,Lang.SEARCHING,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
+        var reply = await message.client.sendMessage(message.jid,Lang.SEARCHING,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
 
         var arama = await wiki({ apiUrl: 'https://' + config.LANG + '.wikipedia.org/w/api.php' })
             .page(match[1]);
 
         var info = await arama.rawContent();
-        await message.client.sendMessage(message.jid, info, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        await message.client.sendMessage(message.jid, info, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         await reply.delete();
     }));
 
@@ -377,14 +377,14 @@ else if (config.WORKTYPE == 'public') {
             return;
         }
 
-        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.NEED_WORDS,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
         gis(match[1], async (error, result) => {
             for (var i = 0; i < (result.length < 5 ? result.length : 5); i++) {
                 var get = got(result[i].url, {https: {rejectUnauthorized: false}});
                 var stream = get.buffer();
                 
                 stream.then(async (image) => {
-                    await message.client.sendMessage(message.jid,image, MessageType.image, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+                    await message.client.sendMessage(message.jid,image, MessageType.image, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data })
                 });
             }
 
