@@ -1,4 +1,5 @@
 let WhatsAlexa = require('../events');
+let Config = require('../config');
 let {MessageType} = require('@adiwajshing/baileys');
 let exec = require('child_process').exec;
 let os = require("os");
@@ -16,4 +17,77 @@ WhatsAlexa.addCommand({pattern: 'termux ?(.*)', fromMe: true, desc: Lang.TERM_DE
         
         return await message.client.sendMessage(message.jid,'```' + user + ':~# ' + match[1] + '\n' + stdout + '```',MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
       });
+}));
+
+let antilink_var = ''
+async function antlch() {
+    await heroku.get(baseURI + '/config-vars').then(async (vars) => {
+        antilink_var = vars.ANTI_LINK
+    });
+}
+antlch()
+
+WhatsAlexa.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
+    
+ if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
+    if (Config.ANTI_LINK_TYPE == 'all') {
+        
+        let regex1 = new RegExp('http://')
+        let regex2 = new RegExp('https://')
+        if (regex1.test(message.message)) {
+            var us = await checkUsAdmin(message)
+            var im = await checkImAdmin(message)
+            if (!im) return;
+            if (us) return;
+            await message.client.groupRemove(message.jid, [message.data.participant]);         
+            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
+        } 
+        else if (regex2.test(message.message)) {
+            var us = await checkUsAdmin(message)
+            var im = await checkImAdmin(message)
+            if (!im) return;
+            if (us) return;
+            await message.client.groupRemove(message.jid, [message.data.participant]);         
+            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
+        }
+        else if (message.message.match(/((?:[.]com)\b)/i)) {
+            var us = await checkUsAdmin(message)
+            var im = await checkImAdmin(message)
+            if (!im) return;
+            if (us) return;
+            await message.client.groupRemove(message.jid, [message.data.participant]);         
+            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
+          }
+
+    } else if (Config.ANTI_LINK_TYPE == 'group link') {
+        
+        let regex1 = new RegExp('chat.whatsapp.com')
+        let regex2 = new RegExp('/chat.whatsapp.com/')
+        if (regex1.test(message.message)) {
+            var us = await checkUsAdmin(message)
+            var im = await checkImAdmin(message)
+            if (!im) return;
+            if (us) return;
+            await message.client.groupRemove(message.jid, [message.data.participant]);         
+            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
+        } 
+        else if (regex2.test(message.message)) {
+            var us = await checkUsAdmin(message)
+            var im = await checkImAdmin(message)
+            if (!im) return;
+            if (us) return;
+            await message.client.groupRemove(message.jid, [message.data.participant]);         
+            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
+        }
+        else if (message.message.match(/((?M[1]FK)\b)/i)) {
+            var us = await checkUsAdmin(message)
+            var im = await checkImAdmin(message)
+            if (!im) return;
+            if (us) return;
+            await message.client.groupRemove(message.jid, [message.data.participant]);         
+            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
+            
+          }
+        }
+      }
 }));
