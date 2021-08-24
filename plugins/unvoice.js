@@ -17,8 +17,8 @@ if (Config.WORKTYPE == 'private') {
             return;
         }
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UV_REPLY, MesssageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
-        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UV_REPLY, MesssageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -31,7 +31,7 @@ if (Config.WORKTYPE == 'private') {
             .format('mp3')
             .save('output.mp3')
             .on('end', async () => {
-                await message.sendMessage(fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: true});
+                await message.sendMessage(fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, ptt: true});
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
@@ -43,8 +43,8 @@ if (Config.WORKTYPE == 'private') {
             return;
         }
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
-        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -57,7 +57,7 @@ if (Config.WORKTYPE == 'private') {
             .withNoVideo()
             .save('output.mp3')
             .on('end', async () => {
-                await message.client.sendMessage(message.jid, fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: false});
+                await message.client.sendMessage(message.jid, fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, ptt: false});
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
@@ -71,8 +71,8 @@ else if (Config.WORKTYPE == 'public') {
             return;
         }
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UV_REPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
-        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UV_REPLY, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UV_PROC,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -85,7 +85,7 @@ else if (Config.WORKTYPE == 'public') {
             .format('mp3')
             .save('output.mp3')
             .on('end', async () => {
-                await message.sendMessage(fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: true});
+                await message.sendMessage(fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, ptt: true});
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
@@ -97,8 +97,8 @@ else if (Config.WORKTYPE == 'public') {
             return;
         }
 
-        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
-        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data});
+        if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.UA_REPLY, MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
+        var downloading = await message.client.sendMessage(message.jid,Lang.UA_PROC,MessageType.text, {contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data});
         var location = await message.client.downloadAndSaveMediaMessage({
             key: {
                 remoteJid: message.reply_message.jid,
@@ -111,7 +111,7 @@ else if (Config.WORKTYPE == 'public') {
             .withNoVideo()
             .save('output.mp3')
             .on('end', async () => {
-                await message.client.sendMessage(message.jid, fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data, ptt: false});
+                await message.client.sendMessage(message.jid, fs.readFileSync('output.mp3'), MessageType.audio, {mimetype: Mimetype.mp4Audio, contextInfo: { forwardingScore: 5, isForwarded: true }, quoted: message.data, ptt: false});
             });
         return await message.client.deleteMessage(message.jid, {id: downloading.key.id, remoteJid: message.jid, fromMe: true})
     }));
