@@ -221,6 +221,7 @@ var already_on = ''
 var already_off = ''
 var succ_on = ''
 var succ_off = ''
+var wr_cmd = ''
 if (conf.LANG == 'EN') {
     fullalexa_dsc = 'Activates full functional Alexa features. Turn your account into a ai chatbot!'
     already_on = 'Alexa artificial intelligence is already fully functional. ✔'
