@@ -227,6 +227,7 @@ if (conf.LANG == 'EN') {
     already_off = 'Alexa artificial intelligence is currently running semi-functional. ✔'
     succ_on = 'Alexa Opened Fully Functionally! Please wait a bit! ✅'
     succ_off = 'Alexa Set to Semi-Functional! Please wait a bit! ☑️'
+    wr_cmd = 'Please just use the *off* or *on* command.'
 }
 if (conf.LANG == 'ML') {
     fullalexa_dsc = 'പൂർണ്ണമായും പ്രവർത്തനക്ഷമമായ Alexa സവിശേഷതകൾ സജീവമാക്കുന്നു. നിങ്ങളുടെ അക്കൗണ്ട് ഒരു ചാറ്റ്ബോട്ടാക്കി മാറ്റുക!'
@@ -234,6 +235,7 @@ if (conf.LANG == 'ML') {
     already_off = 'Alexa AI നിലവിൽ സെമി-ഫംഗ്ഷണൽ ആണ്.'
     succ_on = 'Alexa പൂർണ്ണമായും പ്രവർത്തനക്ഷമമായി തുറന്നു! കുറച്ച് കാത്തിരിക്കൂ! ✅'
     succ_off = 'സെമി-ഫങ്ഷണൽ ആയി Alexa സജ്ജമാക്കുക! കുറച്ച് കാത്തിരിക്കൂ! ☑️'
+    wr_cmd = 'ദയവായി *on* അല്ലെങ്കിൽ *off* കമാൻഡ് ഉപയോഗിക്കുക.'
 }
 if (conf.LANG == 'ID') {
     fullalexa_dsc = 'Mengaktifkan fitur Alexa yang berfungsi penuh. Ubah akun Anda menjadi chatbot!'
@@ -241,6 +243,7 @@ if (conf.LANG == 'ID') {
     already_off = 'Alexa AI saat ini semi-fungsional.'
     succ_on = 'Alexa Dibuka Sepenuhnya Secara Fungsional! Harap tunggu sebentar! ✅'
     succ_off = 'Alexa Set ke Semi-Fungsional! Mohon tunggu sebentar! ☑️'
+    wr_cmd = 'Silakan gunakan perintah *off* atau *on*.'
 }
 
 WhatsAlexa.addCommand({ pattern: 'fullalexa ?(.*)', desc: fullalexa_dsc, fromMe: true, usage: '#fullalexa on / off' }, (async (message, match) => {
@@ -270,5 +273,7 @@ WhatsAlexa.addCommand({ pattern: 'fullalexa ?(.*)', desc: fullalexa_dsc, fromMe:
             });
             await message.client.sendMessage(message.jid, '*' + succ_off + '*', MessageType.text)
         }
+    } else {
+        return await message.client.sendMessage(message.jid, wr_cmd, MessageType.text)
     }
 }));
