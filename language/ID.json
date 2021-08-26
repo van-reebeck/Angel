@@ -67,7 +67,13 @@
         },
         "evaluators": {
             "TERM_DESC": "Memungkinkan untuk menjalankan perintah di shell server.",
-            "GIVE_ME_CODE": "*Beri aku kode!*"
+            "GIVE_ME_CODE": "*Beri aku kode!*",
+            "PMS_DESC": "Mengirim pesan pribadi ke orang yang dibalas dalam grup.",
+            "NEED_REPLY": "*Anda harus membalas pesan pengguna mana pun!*",
+            "NEED_WORDS": "*Harus memasukkan beberapa kata!*",
+            "SUC_PMS": "*Pesan Berhasil Terkirim ✅*",
+            "MSG": "Pesan",
+            "FRM": "Dari:"
         },
         "heroku": {
             "RESTART_DESC": "Mulai ulang WhatsAlexa",
