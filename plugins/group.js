@@ -1,7 +1,9 @@
 let {MessageType, GroupSettingChange} = require('@adiwajshing/baileys');
 let WhatsAlexa = require('../events');
 let Config = require('../config');
+let FilterDb = require('./sql/filters');
 let Language = require('../language');
+let FLang = Language.getString('filters');
 let Lang = Language.getString('admin');
 
  async function checkUsAdmin(message, user = message.data.participant) {
@@ -235,6 +237,62 @@ WhatsAlexa.addCommand({pattern: 'linkgc ?(.*)', fromMe: false, onlyGroup: true, 
     
     var invite = await message.client.groupInviteCode(message.jid);
     await message.client.sendMessage(message.jid,Lang.INVITE + ' https://chat.whatsapp.com/' + invite, MessageType.text);
+}));
+
+WhatsAlexa.addCommand({pattern: 'filter ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.FILTER_DESC}, (async (message, match) => {
+    var us = await checkUsAdmin(message);
+    if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
+ 
+    match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
+
+    if (match === null) {
+        filtreler = await FilterDb.getFilter(message.jid);
+        if (filtreler === false) {
+            await message.client.sendMessage(message.jid,FLang.NO_FILTER,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        } else {
+            var mesaj = FLang.FILTERS + '\n';
+            filtreler.map((filter) => mesaj += '```' + filter.dataValues.pattern + '```\n');
+            await message.client.sendMessage(message.jid,mesaj,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        }
+    } else {
+        if (match.length < 2) {
+            return await message.client.sendMessage(message.jid,FLang.NEED_REPLY + ' ```#filter "Message To be Replied" "Replied Message"',MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+        }
+        await FilterDb.setFilter(message.jid, match[0].replace(/['"“]+/g, ''), match[1].replace(/['"“]+/g, '').replace(/[#]+/g, '\n'), match[0][0] === "'" ? true : false);
+        await message.client.sendMessage(message.jid,FLang.FILTERED.format(match[0].replace(/['"]+/g, '')),MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+    }
+}));
+
+WhatsAlexa.addCommand({pattern: 'stop ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.STOP_DESC}, (async (message, match) => {
+    var us = await checkUsAdmin(message);
+    if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
+ 
+    match = match[1].match(/[\'\"\“](.*?)[\'\"\“]/gsm);
+    if (match === null) {
+        return await message.client.sendMessage(message.jid,FLang.NEED_REPLY + '\n*Example:* ```#stop "Message To be Replied"```',MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+    }
+
+    del = await FilterDb.deleteFilter(message.jid, match[0].replace(/['"“]+/g, ''));
+    
+    if (!del) {
+        await message.client.sendMessage(message.jid,FLang.ALREADY_NO_FILTER, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+    } else {
+        await message.client.sendMessage(message.jid,FLang.DELETED, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+    }
+}));
+
+
+WhatsAlexa.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
+    var filtreler = await FilterDb.getFilter(message.jid);
+    if (!filtreler) return; 
+    filtreler.map(
+        async (filter) => {
+            pattern = new RegExp(filter.dataValues.regex ? filter.dataValues.pattern : ('\\b(' + filter.dataValues.pattern + ')\\b'), 'gm');
+            if (pattern.test(message.message)) {
+                await message.client.sendMessage(message.jid,filter.dataValues.text, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            }
+        }
+    );
 }));
 
 WhatsAlexa.addCommand({pattern: 'setname ?(.*)', onlyGroup: true, fromMe: false, desc: Lang.SET_NAME_DESC}, (async (message, match) => {
