@@ -41,7 +41,7 @@ async function antlch() {
 }
 antlch()
 
-WhatsAlexa..addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
+WhatsAlexa.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
     if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://')
