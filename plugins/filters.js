@@ -1,4 +1,4 @@
-let WhatsAlexa = require('../events');
+/* let WhatsAlexa = require('../events');
 let {MessageType} = require('@adiwajshing/baileys');
 let FilterDb = require('./sql/filters');
 let Language = require('../language');
@@ -52,4 +52,4 @@ WhatsAlexa.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
             }
         }
     );
-}));
+})); *\
