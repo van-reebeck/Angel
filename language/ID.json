@@ -30,6 +30,10 @@
         "admin": {
             "BAN_DESC": "Kick seseorang dalam grup. Balas pesan atau tandai seseorang untuk menggunakan perintah.",
             "IM_NOT_ADMIN": "*Saya bukan admin di grup ini!*",
+            "USER_NOT_ADMIN": "*Anda bukan admin di grup ini!*",
+            "SET_NAME_DESC": "Mengubah nama grup.",
+            "S_NEED_WORD": "*Anda harus memasukkan nama!*",
+            "SUC_SNAME": "✅ Berhasil mengubah nama Grup menjadi",
             "BANNED": "dikeluarkan dari grup!",
             "GIVE_ME_USER": "*Beri saya pengguna!*",
             "ADD_DESC": "Menambahkan seseorang ke grup",
@@ -63,7 +67,13 @@
         },
         "evaluators": {
             "TERM_DESC": "Memungkinkan untuk menjalankan perintah di shell server.",
-            "GIVE_ME_CODE": "*Beri aku kode!*"
+            "GIVE_ME_CODE": "*Beri aku kode!*",
+            "PMS_DESC": "Mengirim pesan pribadi ke orang yang dibalas dalam grup.",
+            "NEED_REPLY": "*Anda harus membalas pesan pengguna mana pun!*",
+            "NEED_WORDS": "*Harus memasukkan beberapa kata!*",
+            "SUC_PMS": "*Pesan Berhasil Terkirim ✅*",
+            "MSG": "Pesan",
+            "FRM": "Dari:"
         },
         "heroku": {
             "RESTART_DESC": "Mulai ulang WhatsAlexa",
@@ -350,7 +360,7 @@
         },
         "carbon": {
             "CARBON_DESC": "Mengonversi teks menjadi foto dengan carbon.sh.",
-            "CARBON_NEEDWORD": "*Silakan tulis kalimat!*\nContoh: ```.carbon test```\nContoh: ```.carbon Making#Test```",
+            "CARBON_NEEDWORD": "*Silakan tulis kalimat!*\nContoh: ```#carbon test```\nContoh: ```#carbon Making#Test```",
             "CARBON_WARN": "Harap tulis dalam bahasa TR dan EN saja!"
         },
         "ttp": {

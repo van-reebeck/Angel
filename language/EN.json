@@ -30,6 +30,10 @@
         "admin": {
             "BAN_DESC": "Ban someone in the group. Reply to message or tag a person to use command.",
             "IM_NOT_ADMIN": "*I am not admin in this group!*",
+            "USER_NOT_ADMIN": "*You are not an admin in this group!*",
+            "SET_NAME_DESC": "Changes the group's name.",
+            "S_NEED_WORD": "*You must enter a name!*",
+            "SUC_SNAME": "✅ Successfully changed the Group's name to",
             "BANNED": "kicked out of the group!",
             "GIVE_ME_USER": "*Give me a user!*",
             "ADD_DESC": "Adds someone to the group.",
@@ -62,7 +66,13 @@
         },
         "evaluators": {
             "TERM_DESC": "Allows to run the command on the server's shell.",
-            "GIVE_ME_CODE": "*Give me a code!*"
+            "GIVE_ME_CODE": "*Give me a code!*",
+            "PMS_DESC": "Sends a private message to the replied person in group.",
+            "NEED_REPLY": "*You must reply to any user's message!*",
+            "NEED_WORDS": "*Must enter some words!*",
+            "SUC_PMS": "*Message Sent Successfully ✅*",
+            "MSG": "Message",
+            "FRM": "From:"
         },
         "heroku": {
             "RESTART_DESC": "Restart WhatsAlexa",
@@ -189,6 +199,10 @@
             "TAGALL_DESC": "Tags everyone in the group.",
             "TAGADMİN": "Tags group admins.",
             "ADMİN": "*I am not admin in this group!*"
+            "SCAN": "Check if the given number is registered in WhatsApp.",
+            "NO": "*You must enter a Phone number!*\n*Example:* ```#scan 9199xxxx```",
+            "SUC": "*The numbered person is using WhatsApp! ✅*",
+            "UNSUC": "*The numbered person is not using WhatsApp! ❌*"
         },
         "updater": {
             "UPDATER_DESC": "Checks the update.",
@@ -334,7 +348,7 @@
         },
         "carbon": {
             "CARBON_DESC": "Uses carbon.sh for Text-to-Image",
-            "CARBON_NEEDWORD": "*Not enough arguments to translate Text-to-Image!*\nExample: ```.carbon test```\nExample: ```.carbon making#test```",
+            "CARBON_NEEDWORD": "*Not enough arguments to translate Text-to-Image!*\nExample: ```#carbon test```\nExample: ```#carbon making#test```",
             "CARBON_WARN": "Please only type in en and tr character!"
         },
         "ttp": {
