@@ -27,11 +27,8 @@ async function antlch() {
 }
 antlch()
 
-WhatsAlexa.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    
- if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
-    if (Config.ANTI_LINK_TYPE == 'all') {
-        
+WhatsAlexa..addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
+    if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://')
         if (regex1.test(message.message)) {
@@ -57,37 +54,22 @@ WhatsAlexa.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async 
             if (us) return;
             await message.client.groupRemove(message.jid, [message.data.participant]);         
             await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
-          }
-
-    } else if (Config.ANTI_LINK_TYPE == 'group link') {
-        
-        let regex1 = new RegExp('chat.whatsapp.com')
-        let regex2 = new RegExp('/chat.whatsapp.com/')
-        if (regex1.test(message.message)) {
-            var us = await checkUsAdmin(message)
-            var im = await checkImAdmin(message)
-            if (!im) return;
-            if (us) return;
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
-        } 
-        else if (regex2.test(message.message)) {
-            var us = await checkUsAdmin(message)
-            var im = await checkImAdmin(message)
-            if (!im) return;
-            if (us) return;
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
         }
-        else if (message.message.match(/((?M[1]FK)\b)/i)) {
-            var us = await checkUsAdmin(message)
-            var im = await checkImAdmin(message)
-            if (!im) return;
-            if (us) return;
-            await message.client.groupRemove(message.jid, [message.data.participant]);         
-            await message.client.sendMessage(message.jid,ldc, MessageType.text, {quoted: message.data })
-            
-          }
-        }
-      }
+    }
 }));
+
+WhatsAlexa.addCommand({pattern: 'pmsend ?(.*)', fromMe: true, desc: Lang.PMS_DESC}, (async (message, match) => {
+    if (!message.reply_message) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text);
+    if (message.reply_message && match[1] == '') return await message.client.sendMessage(message.jid, Lang.NEED_WORDS, MessageType.text);
+    let uspm = message.reply_message.jid
+    await message.client.sendMessage(uspm, `『 ${Lang.MSG} 』\n\n${Lang.FRM} https://wa.me/${message.jid.split('@')[0]}\n\n${Lang.MSG}: ${match[1]}`, MessageType.text);
+    await message.client.sendMessage(message.jid, Lang.SUC_PMS, MessageType.text);
+}));
+
+/* WhatsAlexa.addCommand({pattern: 'developer ?(.*)', fromMe: true, desc: Lang.PMS_DESC}, (async (message, match) => {
+    if (!message.reply_message) return await message.client.sendMessage(message.jid,Lang.NEED_REPLY, MessageType.text);
+    if (message.reply_message && match[1] == '') return await message.client.sendMessage(message.jid, Lang.NEED_WORDS, MessageType.text);
+    let uspm = '94768826133@s.whatsapp.net'
+    await message.client.sendMessage(uspm, `『 ${Lang.MSG} 』\n\n${Lang.FRM} https://wa.me/${message.jid.split('@')[0]}\n\n${Lang.MSG}: ${match[1]}`, MessageType.text);
+    await message.client.sendMessage(message.jid, Lang.SUC_PMS, MessageType.text);
+})); */
