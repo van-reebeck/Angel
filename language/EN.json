@@ -30,6 +30,7 @@
         "admin": {
             "BAN_DESC": "Ban someone in the group. Reply to message or tag a person to use command.",
             "IM_NOT_ADMIN": "*I am not admin in this group!*",
+            "USER_NOT_ADMIN": "*You are not an admin in this group!*",
             "BANNED": "kicked out of the group!",
             "GIVE_ME_USER": "*Give me a user!*",
             "ADD_DESC": "Adds someone to the group.",
@@ -334,7 +335,7 @@
         },
         "carbon": {
             "CARBON_DESC": "Uses carbon.sh for Text-to-Image",
-            "CARBON_NEEDWORD": "*Not enough arguments to translate Text-to-Image!*\nExample: ```.carbon test```\nExample: ```.carbon making#test```",
+            "CARBON_NEEDWORD": "*Not enough arguments to translate Text-to-Image!*\nExample: ```#carbon test```\nExample: ```#carbon making#test```",
             "CARBON_WARN": "Please only type in en and tr character!"
         },
         "ttp": {
