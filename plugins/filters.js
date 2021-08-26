@@ -52,4 +52,4 @@ WhatsAlexa.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
             }
         }
     );
-})); *\
+})); */
