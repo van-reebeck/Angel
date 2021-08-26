@@ -66,7 +66,13 @@
         },
         "evaluators": {
             "TERM_DESC": "Allows to run the command on the server's shell.",
-            "GIVE_ME_CODE": "*Give me a code!*"
+            "GIVE_ME_CODE": "*Give me a code!*",
+            "PMS_DESC": "Sends a private message to the replied person in group.",
+            "NEED_REPLY": "*You must reply to any user's message!*",
+            "NEED_WORDS": "*Must enter some words!*",
+            "SUC_PMS": "*Message Sent Successfully ✅*",
+            "MSG": "Message",
+            "FRM": "From:"
         },
         "heroku": {
             "RESTART_DESC": "Restart WhatsAlexa",
