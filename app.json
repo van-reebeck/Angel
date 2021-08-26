@@ -21,11 +21,6 @@
             "required": true,
             "value": "false"
         },
-        "ANTI_LINK_TYPE": {
-            "description": "Antilink Types! all => It removes when someone send all link starting with www. & https://. group link => It only removes when someone sends a group link.",
-            "required": true,
-            "value": "all"
-        },
         "LANGUAGE": {
             "description": "Bot languages. Malayalam => ML, Indonesia => ID, English => EN ( Enter any one only )",
             "required": true,
@@ -40,11 +35,6 @@
             "description": "WhatsAlexa Working Type. If you use “public”, everyone can use the bot. Else if you use “private”, only you can use your bot.",
             "required": true,
             "value": "public"
-        },
-        "FULL_ALEXA": {
-            "description": "Turn your account into a chatbot! Replys To The Private chat messages by the Alexa Chatbot.",
-            "required": true,
-            "value": "false"
         },
         "HANDLERS": {
             "description": "Symbol used infront of a command ( Prefix ). NOTE : ONLY SYMBOL CAN BE USED, DON'T ENTER ANY OTHER LATIN WORDS / ALPHABETS, IF IT HAPPENS BOT WILL NOT WORK.",
