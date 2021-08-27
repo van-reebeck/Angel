@@ -1,7 +1,7 @@
 <p align="center">
-    <a href="https://github.com/SPARK-SHADOW">
+    <a href="https://github.com/TOXIC-DEVIL">
         <img
-            src="https://readme-typing-svg.herokuapp.com?size=30&width=800&lines=Welcome+To+WhatsAlexa+🤗+Thank+You+For+Visiting 💖"
+            src="https://readme-typing-svg.herokuapp.com?size=30&width=800&lines=Welcome+To+WhatsAlexa...+Thank+You+For+Visiting"
             alt="Typing SVG"
         />
     </a>
