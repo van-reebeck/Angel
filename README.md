@@ -80,9 +80,10 @@ If you are concerned about that, Then you can just use bot on a [Fake Number](ht
 
 There are **50+** Features/Commands Are there in **this bot!**
 
-## ⚠ Warnings & Disclaimers ⚠
+## ⚠ Warning ⚠
 
-- By using kick, add, promote, demote Commands, **Your WhatsApp account may be banned.**
+```
+By using kick, add, promote, demote Commands, Your WhatsApp account may be banned.
 WhatsAlexa or we are not responsible for your account, 
 This bot is intended for the purpose of having fun with some fun commands 
 and group management with some helpfull commands.
@@ -94,10 +95,8 @@ and at the end WhatsApp Team deleted your account. DON'T BLAME US.
 No personal support will be provided / We won't spoon feed you. 
 If you need help ask in our support group 
 and we will try to help you.
-
-- **WhatsApp** name, its variations and the logo are registered trademarks of Facebook. **We have nothing to do with the registered trademark.**
-
-
+```
+    
 ## 👨‍💻 Developers & Contributors 👨‍💻
 
  [![TOXIC-DEVIL](https://github.com/TOXIC-DEVIL.png?size=100)](https://github.com/TOXIC-DEVIL) |  
