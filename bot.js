@@ -300,7 +300,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         } 
         
         if (msg.messageStubType === 32 || msg.messageStubType === 28) {
-
+            // Görüşürüz Mesajı
             var gb = await getMessage(msg.key.remoteJid, 'goodbye');
             if (gb !== false) {
                 let pp
@@ -310,7 +310,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
             }
             return;
         } else if (msg.messageStubType === 27 || msg.messageStubType === 31) {
-            
+            // Hoşgeldin Mesajı
             var gb = await getMessage(msg.key.remoteJid);
             if (gb !== false) {
                let pp
