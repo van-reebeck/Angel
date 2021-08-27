@@ -34,16 +34,9 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     });
     return sonuc.includes(true);
 }
-let antilink_var = ''
-async function antlch() {
-    await heroku.get(baseURI + '/config-vars').then(async (vars) => {
-        antilink_var = vars.ANTI_LINK
-    });
-}
-antlch()
 
 WhatsAlexa.addCommand({on: 'text', fromMe: false, deleteCommand: false}, (async (message, match) => {
-    if (antilink_var == 'true' && message.jid !== '905511384572-1616356915@g.us') {
+    if (Config.ANTILINK == 'true' && message.jid !== '905511384572-1616356915@g.us') {
         let regex1 = new RegExp('http://')
         let regex2 = new RegExp('https://')
         if (regex1.test(message.message)) {
