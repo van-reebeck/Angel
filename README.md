@@ -1,3 +1,12 @@
+<p align="center">
+    <a href="https://github.com/SPARK-SHADOW">
+        <img
+            src="https://readme-typing-svg.herokuapp.com?size=30&width=800&lines=Welcome+To+WhatsAlexa+🤗+Thank+You+For+Visiting 💖"
+            alt="Typing SVG"
+        />
+    </a>
+</p>
+
 ## 🤔 What is WhatsAlexa?! 🤔
 - **WhatsAlexa** is a Helper WhatsApp Bot Written with **[Baileys](https://github.com/adiwajshing/baileys)** Which is hosted on **[Heroku Cloud Server](https://heroku.com).** Also Alexa has a **Lot of Commands/Features,** Including **Artificial Intelligence [ AI ] Features/Commands.**
 
