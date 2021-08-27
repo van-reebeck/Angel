@@ -12,11 +12,6 @@ if (Config.WORKTYPE == 'private') {
 
     WhatsAlexa.addCommand({pattern: 'mp4audio', fromMe: true, desc: Lang.MP4TOAUDİO_DESC}, (async (message, match) => {    
 
-        if (message.jid === '905524317852-1612300121@g.us') {
-
-            return;
-        }
-
         if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.MP4TOAUDİO_NEEDREPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var downloading = await message.client.sendMessage(message.jid,Lang.MP4TOAUDİO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var location = await message.client.downloadAndSaveMediaMessage({
@@ -38,11 +33,6 @@ if (Config.WORKTYPE == 'private') {
 
     WhatsAlexa.addCommand({pattern: 'imagesticker', fromMe: true, desc: Lang.STİCKER_DESC}, (async (message, match) => {   
 
-        if (message.jid === '905524317852-1612300121@g.us') {
-
-            return;
-        }
- 
         if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.STİCKER_NEEDREPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var downloading = await message.client.sendMessage(message.jid,Lang.STİCKER,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var location = await message.client.downloadAndSaveMediaMessage({
@@ -66,11 +56,6 @@ else if (Config.WORKTYPE == 'public') {
 
     WhatsAlexa.addCommand({pattern: 'mp4audio', fromMe: false, desc: Lang.MP4TOAUDİO_DESC}, (async (message, match) => {    
 
-        if (message.jid === '905524317852-1612300121@g.us') {
-
-            return;
-        }
-
         if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.MP4TOAUDİO_NEEDREPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var downloading = await message.client.sendMessage(message.jid,Lang.MP4TOAUDİO,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var location = await message.client.downloadAndSaveMediaMessage({
@@ -91,11 +76,6 @@ else if (Config.WORKTYPE == 'public') {
     }));
 
     WhatsAlexa.addCommand({pattern: 'imagesticker', fromMe: false, desc: Lang.STİCKER_DESC}, (async (message, match) => {    
-
-        if (message.jid === '905524317852-1612300121@g.us') {
-
-            return;
-        }
 
         if (message.reply_message === false) return await message.client.sendMessage(message.jid, Lang.STİCKER_NEEDREPLY, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
         var downloading = await message.client.sendMessage(message.jid,Lang.STİCKER,MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }})
