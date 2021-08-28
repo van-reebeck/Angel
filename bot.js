@@ -1,4 +1,5 @@
 const fs = require("fs");
+const Auto_Bio_Alexa = require('whatsasena-npm');
 const path = require("path");
 const events = require("./events");
 const chalk = require('chalk');
@@ -64,12 +65,8 @@ async function Alexa () {
     const Session = new StringSession();
     conn.version = [2, 2119, 6]
 
-    var biography_var = ''
-    await heroku.get(baseURI + '/config-vars').then(async (vars) => {
-        biography_var = vars.AUTO_BIO
-    });
     setInterval(async () => { 
-        if (biography_var == 'true') {
+        if (config.AUTOBIO == 'true') {
             if (conn.user.jid.startsWith('90')) { 
                 var ov_time = new Date().toLocaleString('LK', { timeZone: 'Europe/Istanbul' }).split(' ')[1]
                 const get_localized_date = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
