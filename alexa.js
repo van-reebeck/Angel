@@ -27,9 +27,11 @@ ${chalk.blue.italic('🔄 Loading QR CODE...')}`);
         if (!fs.existsSync('config.env')) {
             fs.writeFileSync('config.env', `SESSION="${st}"`);
         }
-
+            await conn.sendMessage(conn.user.jid,st, MessageType.text)
+            await conn.sendMessage(conn.user.jid,'*⚠ Do not share this code with Anyone! ⚠*\n\nThank You For using WhatsAlexa 💖', MessageType.text)
+        
         console.log(
-            chalk.red.bold('⚠ COPY THIS CODE, It is an IMPORTANT CODE... ⚠'))
+            chalk.red.bold('⚠ COPY THIS CODE, It is an IMPORTANT CODE... ⚠ IF YOU CANT COPY THIS CODE YOU CAN OPEN YOUR WHATSAPP, AND OPEN YOUR CHAT TO SEE THIS SESSION'))
             
         console.log(
             chalk.blue.bold('Thank You For Using WhatsAlexa 💖'))
