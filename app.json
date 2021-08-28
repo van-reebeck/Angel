@@ -105,6 +105,10 @@
             "required": false,
             "value": "default"
         },
+        "SESSION": {
+            "description": "Enter the copied SESSION here ( Copied code starting with Alexa===eyJj & ending with 9In0= ).",
+            "required": true
+        },
         "PROMOTE_MESSAGE": {
             "description": "Customizable Promote Message! Use => default, to change back.",
             "required": false,
@@ -114,10 +118,6 @@
             "description": "Customizable Demote Message! Use => default, to change back.",
             "required": false,
             "value": "default"
-        },
-        "SESSION": {
-            "description": "Enter the copied SESSION here ( Copied code starting with Alexa===eyJj & ending with 9In0= ).",
-            "required": true
        },
         "AFK_MESSAGE": {
             "description": "Customizable AFK Message! Use => default, to change back.",
