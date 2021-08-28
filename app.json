@@ -8,9 +8,13 @@
     "success_url": "https://toxic-devil.github.io",
     "stack": "container",
     "env": {
-        "ADMINS": {
-            "description": "Leave blank if you don't know how to use it! Private commands can be used by this admins! ADMINS; Your number must be an international number. So you should have your number after the country code. Example: 9199xxxxxxxx ( This is an Example of Indian number +91 )",
+        "SUDO": {
+            "description": "Leave blank if you don't know how to use it! Private commands can be used by this admins! SUDO; Your number must be an international number. So you should have your number after the country code. Example: 9199xxxxxxxx ( This is an Example of Indian number +91 )",
             "required": false
+        },
+        "ALEXA_SESSION": {
+            "description": "Enter the copied SESSION here ( Copied code starting with Alexa===eyJj & ending with 9In0= ).",
+            "required": true
         },
         "LANGUAGE": {
             "description": "Bot languages. Malayalam => ML, Indonesia => ID, English => EN ( Enter any one only )",
@@ -104,10 +108,6 @@
             "description": "Customizable Kickme Message! Use => default, to change back.",
             "required": false,
             "value": "default"
-        },
-        "SESSION": {
-            "description": "Enter the copied SESSION here ( Copied code starting with Alexa===eyJj & ending with 9In0= ).",
-            "required": true
         },
         "PROMOTE_MESSAGE": {
             "description": "Customizable Promote Message! Use => default, to change back.",
