@@ -4,7 +4,7 @@ let {MessageType} = require('@adiwajshing/baileys');
 let Language = require('../language');
 let Lang = Language.getString('list');
 let td = Config.WORKTYPE == 'public' ? false : true
-let status = await message.client.getStatus(message.jid) 
+let status = message.client.getStatus(message.jid) 
 
 var language = ''
 var MSG = ''
