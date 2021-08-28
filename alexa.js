@@ -25,7 +25,7 @@ ${chalk.blue.italic('🔄 Loading QR CODE...')}`);
         );
         
         if (!fs.existsSync('config.env')) {
-            fs.writeFileSync('config.env', `SESSION="${st}"`);
+            fs.writeFileSync('config.env', `ALEXA_SESSION="${st}"`);
         }
             await conn.sendMessage(
               conn.user.jid,
