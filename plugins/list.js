@@ -3,6 +3,10 @@ let Config = require('../config');
 let {MessageType} = require('@adiwajshing/baileys');
 let Language = require('../language');
 let Lang = Language.getString('list');
+let Lang = ''
+if (Config.LANG == 'EN') Lang = 'English'
+if (Config.LANG == 'ML') Lang = 'Malayalam'
+if (Config.LANG == 'ID') Lang = 'Indonasian'
 
 if (Config.WORKTYPE == 'private') {
 
@@ -40,7 +44,7 @@ if (Config.WORKTYPE == 'private') {
             );
         
             await message.client.sendMessage(
-                message.jid,'∎ ⇓ *WhatsAlexa Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+                message.jid,'*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*BOT INFO*\n\n```Developer:``` *TOXIC DEVIL*\n```Owner:``` *'+Config.OWNER+'*\n```Language:``` *'+Lang+'*\n```Work Type:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
             })
         } else {
 
@@ -76,7 +80,7 @@ if (Config.WORKTYPE == 'private') {
             );
             if (CMD_HELP === '') CMD_HELP += Lang.NOT_FOUND;
             await message.client.sendMessage(
-                message.jid,'∎ ⇓ *WhatsAlexa Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+                message.jid,'*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*BOT INFO*\n\n```Developer:``` *TOXIC DEVIL*\n```Owner:``` *'+Config.OWNER+'*\n```Language:``` *'+Lang+'*\n```Work Type:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
             })
         }
     }));
@@ -117,7 +121,7 @@ else if (Config.WORKTYPE == 'public') {
             );
         
             await message.client.sendMessage(
-                message.jid,'∎ ⇓ *WhatsAlexa Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+                message.jid,'*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*BOT INFO*\n\n```Developer:``` *TOXIC DEVIL*\n```Owner:``` *'+Config.OWNER+'*\n```Language:``` *'+Lang+'*\n```Work Type:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
             })
         } else {
 
@@ -153,7 +157,7 @@ else if (Config.WORKTYPE == 'public') {
             );
             if (CMD_HELP === '') CMD_HELP += Lang.NOT_FOUND;
             await message.client.sendMessage(
-                message.jid,'∎ ⇓ *WhatsAlexa Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
+                message.jid,'*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*BOT INFO*\n\n```Developer:``` *TOXIC DEVIL*\n```Owner:``` *'+Config.OWNER+'*\n```Language:``` *'+Lang+'*\n```Work Type:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Commands* ⇓ ∎\n\n' + CMD_HELP, MessageType.text, {contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data
             })
         }
     }));
