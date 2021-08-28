@@ -1,5 +1,4 @@
 const fs = require("fs");
-const Auto_Bio_Alexa = require('whatsasena-npm');
 const path = require("path");
 const events = require("./events");
 const chalk = require('chalk');
