@@ -3,7 +3,7 @@ let Config = require('../config');
 let {MessageType} = require('@adiwajshing/baileys');
 let Language = require('../language');
 let Lang = Language.getString('list');
-let Lang = ''
+var Lang = ''
 if (Config.LANG == 'EN') Lang = 'English'
 if (Config.LANG == 'ML') Lang = 'Malayalam'
 if (Config.LANG == 'ID') Lang = 'Indonasian'
