@@ -5,15 +5,11 @@ let Language = require('../language');
 let Lang = Language.getString('list');
 let td = Config.WORKTYPE == 'public' ? false : true
 
+var lang = ''
 var MSG = ''
-if (Config.LANG == 'EN') MSG = '*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*BOT INFO*\n\n```Developer:``` *TOXIC DEVIL*\n```Owner:``` *'+Config.OWNER+'*\n```Language:``` *'+Lang+'*\n```Work Type:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Commands* ⇓ ∎\n\n'
-if (Config.LANG == 'ML') MSG = '*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*ബോട്ട് വിവരം*\n\n```ഡെവലപ്പർ:``` *TOXIC DEVIL*\n```ഉടമ:``` *'+Config.OWNER+'*\n```ഭാഷ:``` *'+Lang+'*\n```വര്‍ക്ക്‌ തരം:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *കമാൻഡുകൾ* ⇓ ∎\n\n'
-if (Config.LANG == 'ID') MSG ='*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*INFORMASI BOT*\n\n```Pengembang:``` *TOXIC DEVIL*\n```Pemilik:``` *'+Config.OWNER+'*\n```Bahasa:``` *'+Lang+'*\n```Jenis Pekerjaan:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Perintah* ⇓ ∎\n\n'
-
-var Lang = ''
-if (Config.LANG == 'EN') Lang = 'English'
-if (Config.LANG == 'ML') Lang = 'മലയാളം'
-if (Config.LANG == 'ID') Lang = 'Indonasian'
+if (Config.LANG == 'EN') Lang = 'English',  MSG = '*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*BOT INFO*\n\n```Developer:``` *TOXIC DEVIL*\n```Owner:``` *'+Config.OWNER+'*\n```Language:``` *'+Lang+'*\n```Work Type:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Commands* ⇓ ∎\n\n'
+if (Config.LANG == 'ML') Lang = 'മലയാളം', MSG = '*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*ബോട്ട് വിവരം*\n\n```ഡെവലപ്പർ:``` *TOXIC DEVIL*\n```ഉടമ:``` *'+Config.OWNER+'*\n```ഭാഷ:``` *'+Lang+'*\n```വര്‍ക്ക്‌ തരം:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *കമാൻഡുകൾ* ⇓ ∎\n\n'
+if (Config.LANG == 'ID') Lang = 'Indonasian', MSG = '*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n   *⦁◊═⦁ Whats 👸 Alexa ⦁═◊⦁*\n*◄━━━━━━━⦁⦁◯⦁⦁━━━━━━━━►*\n\n*INFORMASI BOT*\n\n```Pengembang:``` *TOXIC DEVIL*\n```Pemilik:``` *'+Config.OWNER+'*\n```Bahasa:``` *'+Lang+'*\n```Jenis Pekerjaan:``` *'+Config.WORKTYPE+'*\n\n∎ ⇓ *Perintah* ⇓ ∎\n\n'
 
     WhatsAlexa.addCommand({pattern: 'list ?(.*)', fromMe: td, dontAddCommandList: true}, (async (message, match) => {
 
