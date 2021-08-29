@@ -66,7 +66,7 @@ WhatsAlexa.addCommand({pattern: 'update now$', fromMe: true, desc: Lang.UPDATE_N
             await message.client.sendMessage(
                 message.jid,Lang.UPDATED, MessageType.text, { contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
 
-            await message.client.sendMessage(message.jid, '💬 *WhatsAlexa Restarting Automatically!*', MessageType.text, , { contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
+            await message.client.sendMessage(message.jid, '💬 *WhatsAlexa Restarting Automatically!*', MessageType.text, { contextInfo: { forwardingScore: 1000, isForwarded: true }, quoted: message.data })
             
         } else {
             git.pull((async (err, update) => {
