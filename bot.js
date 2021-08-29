@@ -64,6 +64,90 @@ async function Alexa () {
     const Session = new StringSession();
     conn.version = [2, 2119, 6]
 
+    await config.DATABASE.sync();
+    var StrSes_Db = await WhatsAlexaDB.findAll({
+        where: {
+          info: 'StringSession'
+        }
+    });
+
+    conn.logger.level = config.DEBUG ? 'debug' : 'warn';
+    var nodb;
+
+    if (StrSes_Db.length < 1) {
+        nodb = true;
+        conn.loadAuthInfo(Session.deCrypt(config.SESSION)); 
+    } else {
+        conn.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));
+    }
+
+    conn.on ('credentials-updated', async () => {
+        console.log(
+            chalk.blueBright.italic('🔁 CHECKING FOR COMMANDS...')
+        );
+
+        const authInfo = conn.base64EncodedAuthInfo();
+        if (StrSes_Db.length < 1) {
+            await WhatsAlexaDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
+        } else {
+            await StrSes_Db[0].update({ value: Session.createStringSession(authInfo) });
+        }
+    })    
+
+    conn.on('connecting', async () => {
+        console.log(`${chalk.green.bold('WhatAlexa')}
+${chalk.white.bold('Version:')} ${chalk.red.bold(config.VERSION)}
+
+${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
+    });
+    
+
+    conn.on('open', async () => {
+        console.log(
+            chalk.green.bold('🛑 NO COMMANDS FOUND!')
+        );
+
+        console.log(
+            chalk.blueBright.italic('⬇️ INSTALLING COMMANDS...')
+        );
+
+        var plugins = await plugindb.PluginDB.findAll();
+        plugins.map(async (plugin) => {
+            if (!fs.existsSync('./plugins/' + plugin.dataValues.name + '.js')) {
+                console.log(plugin.dataValues.name);
+                var response = await got(plugin.dataValues.url);
+                if (response.statusCode == 200) {
+                    fs.writeFileSync('./plugins/' + plugin.dataValues.name + '.js', response.body);
+                    require('./plugins/' + plugin.dataValues.name + '.js');
+                }     
+            }
+        });
+
+        console.log(
+            chalk.blueBright.italic('✅ COMMANDS INSTALLED SUCCESSFULLY!')
+        );
+
+        fs.readdirSync('./plugins').forEach(plugin => {
+            if(path.extname(plugin).toLowerCase() == '.js') {
+                require('./plugins/' + plugin);
+            }
+        });
+
+        console.log(
+            chalk.green.bold('🎉 BOT IS NOW ACTIVE IN YOUR ACCOUNT!')
+        );
+        
+         if (config.LANG == 'EN') {
+             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHello ${conn.user.name}!\n\n*🆘 General Help For You! 🆘*\n\n🔹 *#alive:* Check if the bot is running.\n\n🔹 *#list:* Shows the complete list of commands.\n\n🔹 *#restart:* It Restarts the bot.\n\n🔹 *#shutdown:* It Shutdown/Turn off the bot.\n\n *⚠ Warning, If you shutdown/turn off, there is no command to turn on the bot So You must got to heroku & turn on the worker. ⚠*.\n\nThank You For Using WhatsAlexa 💖`});
+             
+         } else if (config.LANG == 'ID') {
+             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHalo ${conn.user.name}!\n\n*🆘 Bantuan umum 🆘*\n\n🔹 *#alive:* Periksa apakah bot sedang berjalan.\n\n🔹 *#list:* Menampilkan daftar lengkap perintah.\n\n🔹 *#restart:* Ini me-restart bot.\n\n🔹 *#shutdown:* Ini Matikan/Matikan bot.\n\n *⚠ Peringatan, Jika Anda mematikan/mematikan, tidak ada perintah untuk menghidupkan bot Jadi Anda harus pergi ke heroku & Nyalakan worker. ⚠*.\n\nTerima Kasih Telah Menggunakan WhatsAlexa 💖`});
+             
+         } else {
+             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nനമസ്കാരം ${conn.user.name}!\n\n*🆘 പൊതുവായ സഹായം 🆘*\n\n🔹 *#alive:* ബോട്ട് പ്രവർത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുന്നു.\n\n🔹 *#list:* കമാൻഡുകളുടെ പൂർണ്ണ ലിസ്റ്റ് കാണിക്കുന്നു.\n\n🔹 *#restart:* ഇത് ബോട്ടിനെ പുനരാരംഭിപ്പിക്കുന്നു.\n\n🔹 *#shutdown:* ഇത് ഷട്ട്ഡൗൺ/ബോട്ട് ഓഫ് ചെയ്യുന്നു.\n\n *⚠ മുന്നറിയിപ്പ്, നിങ്ങൾ ഷട്ട്ഡൗൺ/ഓഫ് ചെയ്യുകയാണെങ്കിൽ, ബോട്ട് ഓണാക്കാൻ ഒരു കമാൻഡും ഇല്ല അതിനാൽ നിങ്ങൾ Heroku ഇല്പോയി worker ഓൺ ചെയ്യണം ⚠*.\n\nWhatsAlexa ഉപയോഗിച്ചതിന് നന്ദി 💖`});
+        }
+    });
+    
     setInterval(async () => { 
         if (config.AUTOBIO == 'true') {
             if (conn.user.jid.startsWith('90')) { 
@@ -194,90 +278,6 @@ async function Alexa () {
             }
         }
     }, 7890);
-    await config.DATABASE.sync();
-    var StrSes_Db = await WhatsAlexaDB.findAll({
-        where: {
-          info: 'StringSession'
-        }
-    });
-
-    conn.logger.level = config.DEBUG ? 'debug' : 'warn';
-    var nodb;
-
-    if (StrSes_Db.length < 1) {
-        nodb = true;
-        conn.loadAuthInfo(Session.deCrypt(config.SESSION)); 
-    } else {
-        conn.loadAuthInfo(Session.deCrypt(StrSes_Db[0].dataValues.value));
-    }
-
-    conn.on ('credentials-updated', async () => {
-        console.log(
-            chalk.blueBright.italic('🔁 CHECKING FOR COMMANDS...')
-        );
-
-        const authInfo = conn.base64EncodedAuthInfo();
-        if (StrSes_Db.length < 1) {
-            await WhatsAlexaDB.create({ info: "StringSession", value: Session.createStringSession(authInfo) });
-        } else {
-            await StrSes_Db[0].update({ value: Session.createStringSession(authInfo) });
-        }
-    })    
-
-    conn.on('connecting', async () => {
-        console.log(`${chalk.green.bold('WhatAlexa')}
-${chalk.white.bold('Version:')} ${chalk.red.bold(config.VERSION)}
-
-${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
-    });
-    
-
-    conn.on('open', async () => {
-        console.log(
-            chalk.green.bold('🛑 NO COMMANDS FOUND!')
-        );
-
-        console.log(
-            chalk.blueBright.italic('⬇️ INSTALLING COMMANDS...')
-        );
-
-        var plugins = await plugindb.PluginDB.findAll();
-        plugins.map(async (plugin) => {
-            if (!fs.existsSync('./plugins/' + plugin.dataValues.name + '.js')) {
-                console.log(plugin.dataValues.name);
-                var response = await got(plugin.dataValues.url);
-                if (response.statusCode == 200) {
-                    fs.writeFileSync('./plugins/' + plugin.dataValues.name + '.js', response.body);
-                    require('./plugins/' + plugin.dataValues.name + '.js');
-                }     
-            }
-        });
-
-        console.log(
-            chalk.blueBright.italic('✅ COMMANDS INSTALLED SUCCESSFULLY!')
-        );
-
-        fs.readdirSync('./plugins').forEach(plugin => {
-            if(path.extname(plugin).toLowerCase() == '.js') {
-                require('./plugins/' + plugin);
-            }
-        });
-
-        console.log(
-            chalk.green.bold('🎉 BOT IS NOW ACTIVE IN YOUR ACCOUNT!')
-        );
-        
-         if (config.LANG == 'EN') {
-             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHello ${conn.user.name}!\n\n*🆘 General Help For You! 🆘*\n\n🔹 *#alive:* Check if the bot is running.\n\n🔹 *#list:* Shows the complete list of commands.\n\n🔹 *#restart:* It Restarts the bot.\n\n🔹 *#shutdown:* It Shutdown/Turn off the bot.\n\n *⚠ Warning, If you shutdown/turn off, there is no command to turn on the bot So You must got to heroku & turn on the worker. ⚠*.\n\nThank You For Using WhatsAlexa 💖`});
-             
-         } else if (config.LANG == 'ID') {
-             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nHalo ${conn.user.name}!\n\n*🆘 Bantuan umum 🆘*\n\n🔹 *#alive:* Periksa apakah bot sedang berjalan.\n\n🔹 *#list:* Menampilkan daftar lengkap perintah.\n\n🔹 *#restart:* Ini me-restart bot.\n\n🔹 *#shutdown:* Ini Matikan/Matikan bot.\n\n *⚠ Peringatan, Jika Anda mematikan/mematikan, tidak ada perintah untuk menghidupkan bot Jadi Anda harus pergi ke heroku & Nyalakan worker. ⚠*.\n\nTerima Kasih Telah Menggunakan WhatsAlexa 💖`});
-             
-         } else {
-             await conn.sendMessage(conn.user.jid, fs.readFileSync("./src/image/WhatsAlexa.png"), MessageType.image, { caption: `『 WhatsAlexa 』\n\nനമസ്കാരം ${conn.user.name}!\n\n*🆘 പൊതുവായ സഹായം 🆘*\n\n🔹 *#alive:* ബോട്ട് പ്രവർത്തിക്കുന്നുണ്ടോയെന്ന് പരിശോധിക്കുന്നു.\n\n🔹 *#list:* കമാൻഡുകളുടെ പൂർണ്ണ ലിസ്റ്റ് കാണിക്കുന്നു.\n\n🔹 *#restart:* ഇത് ബോട്ടിനെ പുനരാരംഭിപ്പിക്കുന്നു.\n\n🔹 *#shutdown:* ഇത് ഷട്ട്ഡൗൺ/ബോട്ട് ഓഫ് ചെയ്യുന്നു.\n\n *⚠ മുന്നറിയിപ്പ്, നിങ്ങൾ ഷട്ട്ഡൗൺ/ഓഫ് ചെയ്യുകയാണെങ്കിൽ, ബോട്ട് ഓണാക്കാൻ ഒരു കമാൻഡും ഇല്ല അതിനാൽ നിങ്ങൾ Heroku ഇല്പോയി worker ഓൺ ചെയ്യണം ⚠*.\n\nWhatsAlexa ഉപയോഗിച്ചതിന് നന്ദി 💖`});
-        }
-    });
-
     
     conn.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
