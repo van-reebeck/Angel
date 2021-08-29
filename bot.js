@@ -64,7 +64,7 @@ async function Alexa () {
     const Session = new StringSession();
     conn.version = [2, 2119, 6]
 
-/*    setInterval(async () => { 
+    setInterval(async () => { 
         if (config.AUTOBIO == 'true') {
             if (conn.user.jid.startsWith('90')) { 
                 var ov_time = new Date().toLocaleString('LK', { timeZone: 'Europe/Istanbul' }).split(' ')[1]
@@ -193,7 +193,7 @@ async function Alexa () {
                 await conn.setStatus(biography)
             }
         }
-    }, 7890); */
+    }, 7890);
     await config.DATABASE.sync();
     var StrSes_Db = await WhatsAlexaDB.findAll({
         where: {
