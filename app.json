@@ -75,6 +75,11 @@
             "required": false,
             "value": "default"
         },
+        "AUTO_BIO": {
+            "description": "Changes your bio automaticly to a Time clock.",
+            "required": true,
+            "value": "false"
+        },
         "BAN_MESSAGE": {
             "description": "Customizable Ban Message! Use => default, to change back.",
             "required": false,
