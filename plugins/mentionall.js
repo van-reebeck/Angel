@@ -1,4 +1,5 @@
 let WhatsAlexa = require('../events');
+let fs = require('fs');
 let {MessageType} = require('@adiwajshing/baileys');
 let Language = require('../language');
 let Lang = Language.getString('tagall');
