@@ -279,6 +279,36 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         }
     }, 7890);
     
+    setInterval(async () => { 
+        var getGMTh = new Date().getHours()
+        var getGMTm = new Date().getMinutes()
+        
+          await axios.get('https://gist.githubusercontent.com/phaticusthiccy/d0d1855bd0098d773759b4f3345bd292/raw/').then(async (ann) => {
+           const { infoen, infoid, infoml } = ann.data.announcements
+           
+        while (getGMTh == 19 && getGMTm == 1) {
+            var announce = ''
+            if (infoen !== '' && config.LANG == 'EN') announce = '[ ```📢 Daily Announcements``` ]\n\n'+infoen+'
+            if (infoml !== '' && config.LANG == 'ML') announce = '[ ```📢 പ്രതിദിന പ്രഖ്യാപനങ്ങൾ``` ]\n\n'+infoml+'
+            if (infoid !== '' && config.LANG == 'ID') announce = '[ ```📢 Pengumuman Harian``` ]\n\n'+infoid+'
+            if (ann.video.includes('http') || ann.video.includes('https')) {
+                var VID = ann.video.split('youtu.be')[1].split(' ')[0].replace('/', '')
+                var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
+                yt.pipe(fs.createWriteStream('./' + VID + '.mp4'));
+                yt.on('end', async () => {
+                    return await conn.sendMessage(conn.user.jid,fs.readFileSync('./' + VID + '.mp4'), MessageType.video, {caption: announce, mimetype: Mimetype.mp4});
+                });
+            } else {
+                if (ann.image.includes('http') || ann.image.includes('https')) {
+                    var imagegen = await axios.get(ann.image, { responseType: 'arraybuffer'})
+                    return await conn.sendMessage(conn.user.jid, Buffer.from(imagegen.data), MessageType.image, { caption: announce })
+                } else {
+                    return await conn.sendMessage(conn.user.jid, announce, MessageType.text)
+                }
+            }
+        }
+    }, 50000);
+    
     conn.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
 
