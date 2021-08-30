@@ -25,7 +25,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 let gis = require('g-i-s');
-let td = Config.WORKTYPE == 'public' ? false : true
+let td = config.WORKTYPE == 'public' ? false : true
 
     WhatsAlexa.addCommand({pattern: 'tr(?: |$)(\\S*) ?(\\S*)', desc: Lang.TRANSLATE_DESC, usage: Lang.TRANSLATE_USAGE, fromMe: td}, (async (message, match) => {
 
