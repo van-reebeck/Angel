@@ -58,8 +58,8 @@
             "REASON": "Reason",
             "LAST_SEEN": "Last Seen",
             "IM_NOT_AFK": "```I am not AFK anymore!```",
-            "AFK_TEXT": "```Bip bop! This is a bot. My owner is not here at the moment.```",
-            "AFK_TEXT_NOMD": "*Bip bop! This is a bot. My owner is busy right now keep your message🧚‍♀️*",
+            "AFK_TEXT": "```Bip bop! This is a bot. My owner is busy right now!.```",
+            "AFK_TEXT_NOMD": "*Bip bop! This is a bot.",
             "HOUR": "hour",
             "MINUTE": "minute",
             "SECOND": "second"
