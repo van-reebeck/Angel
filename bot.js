@@ -283,7 +283,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         var getGMTh = new Date().getHours()
         var getGMTm = new Date().getMinutes()
         
-          await axios.get('https://gist.githubusercontent.com/phaticusthiccy/d0d1855bd0098d773759b4f3345bd292/raw/').then(async (ann) => {
+          await axios.get('https://gist.github.com/TOXIC-DEVIL/743e00dbe5842c8548fc07dcd0aa0f28').then(async (ann) => {
            const { infoen, infoid, infoml } = ann.data.announcements
            
         while (getGMTh == 19 && getGMTm == 1) {
