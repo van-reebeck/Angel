@@ -1,5 +1,6 @@
 let simpleGit = require('simple-git');
 let git = simpleGit();
+let fs = require('fs');
 let WhatsAlexa = require('../events');
 let {MessageType} = require('@adiwajshing/baileys');
 let Config = require('../config');
