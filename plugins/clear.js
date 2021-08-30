@@ -1,5 +1,6 @@
 let {MessageType, GroupSettingChange, ChatModification, WAConnectionTest} = require('@adiwajshing/baileys');
 let WhatsAlexa = require('../events');
+let fs = require('fs');
 let Config = require('../config');
 let Language = require('../language');
 let Lang = Language.getString('unvoice');
