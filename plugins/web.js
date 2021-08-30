@@ -1,6 +1,7 @@
 let WhatsAlexa = require('../events');
 let {MessageType} = require('@adiwajshing/baileys');
 let TinyURL = require('tinyurl');
+let fs = require('fs');
 let Config = require('../config');
 let Language = require('../language');
 let Lang = Language.getString('web');
