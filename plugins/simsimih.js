@@ -1,5 +1,6 @@
 let WhatsAlexa = require('../events');
 let {MessageType} = require('@adiwajshing/baileys');
+let fs = require('fs');
 let got = require('got');
 let Config = require('../config');
 let td = Config.WORKTYPE == 'public' ? false : true
