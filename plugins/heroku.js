@@ -3,6 +3,7 @@ let Config = require('../config');
 let Heroku = require('heroku-client');
 let {secondsToHms} = require('./afk');
 let got = require('got');
+let fs = require('fs');
 let {MessageType} = require('@adiwajshing/baileys');
 let Language = require('../language');
 let Lang = Language.getString('heroku');
