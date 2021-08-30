@@ -3,6 +3,7 @@ let Config = require('../config');
 let {MessageType} = require('@adiwajshing/baileys');
 let exec = require('child_process').exec;
 let os = require("os");
+let fs = require('fs');
 let heroku = require('heroku-client');
 let Language = require('../language');
 let Lang = Language.getString('evaluators');
