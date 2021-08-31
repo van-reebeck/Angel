@@ -279,35 +279,36 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         }
     }, 7890);
     
-/*    setInterval(async () => { 
+    setInterval(async () => { 
         var getGMTh = new Date().getHours()
         var getGMTm = new Date().getMinutes()
-        
-          await axios.get('https://gist.githubusercontent.com/TOXIC-DEVIL/743e00dbe5842c8548fc07dcd0aa0f28/raw/22d8c3c04f3be785ab1ac99d57f0367cbeecdfae/announcement.json').then(async (ann) => {
-           const { infoen, infoid, infoml } = ann.data.announcements
-           
+         
         while (getGMTh == 19 && getGMTm == 1) {
             var announce = ''
-            if (infoen !== '' && config.LANG == 'EN') announce = '[ ```📢 Daily Announcements``` ]\n\n'+infoen+'
-            if (infoml !== '' && config.LANG == 'ML') announce = '[ ```📢 പ്രതിദിന പ്രഖ്യാപനങ്ങൾ``` ]\n\n'+infoml+'
-            if (infoid !== '' && config.LANG == 'ID') announce = '[ ```📢 Pengumuman Harian``` ]\n\n'+infoid+'
-            if (ann.video.includes('http') || ann.video.includes('https')) {
-                var VID = ann.video.split('youtu.be')[1].split(' ')[0].replace('/', '')
+            if (config.LANG == 'EN') announce = '📢 Announcement system is now been added to WhatsAlexa!! 🥳\nDaily We ( the developers ) will announce *events/features/something new* from this system 📝\nStay Connected ✅'
+            if (config.LANG == 'ML') announce = '📢 പ്രഖ്യാപന സംവിധാനം ഇപ്പോൾ WhatsAlexa- ൽ ചേർത്തിരിക്കുന്നു !! 🥳\nഎല്ലാ ദിവസവും ഞങ്ങൾ ( ഡവലപ്പർമാർ ) ഈ സിസ്റ്റത്തിൽ നിന്ന് *ഇവന്റുകൾ/സവിശേഷതകൾ/പുതിയ എന്തെങ്കിലും* പ്രഖ്യാപിക്കും 📝\nകണക്റ്റഡ് ആയി തുടരുക ✅'
+            if (config.LANG == 'ID') announce = '📢 Sistem pengumuman sekarang ditambahkan ke WhatsAlexa !! 🥳\nHarian Kami ( pengembang ) akan mengumumkan *acara/fitur/sesuatu yang baru* dari sistem ini 📝\nTetap Terhubung ✅'
+            
+            let video = ''
+            let image = 'https://i.ibb.co/KGMms2Z/Whats-Alexa.jpg'
+            
+            if (video.includes('http') || video.includes('https')) {
+                var VID = video.split('youtu.be')[1].split(' ')[0].replace('/', '')
                 var yt = ytdl(VID, {filter: format => format.container === 'mp4' && ['720p', '480p', '360p', '240p', '144p'].map(() => true)});
                 yt.pipe(fs.createWriteStream('./' + VID + '.mp4'));
                 yt.on('end', async () => {
                     return await conn.sendMessage(conn.user.jid,fs.readFileSync('./' + VID + '.mp4'), MessageType.video, {caption: announce, mimetype: Mimetype.mp4});
                 });
             } else {
-                if (ann.image.includes('http') || ann.image.includes('https')) {
-                    var imagegen = await axios.get(ann.image, { responseType: 'arraybuffer'})
+                if (image.includes('http') || image.includes('https')) {
+                    var imagegen = await axios.get(image, { responseType: 'arraybuffer'})
                     return await conn.sendMessage(conn.user.jid, Buffer.from(imagegen.data), MessageType.image, { caption: announce })
                 } else {
                     return await conn.sendMessage(conn.user.jid, announce, MessageType.text)
                 }
             }
         }
-    }, 50000); */
+    }, 50000);
     
     conn.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
