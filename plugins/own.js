@@ -224,7 +224,7 @@ WhatsAlexa.addCommand({pattern: 'setname ?(.*)', onlyGroup: true, dontAddCommand
     
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.S_NEED_WORD,MessageType.text);
     await message.client.groupUpdateSubject(message.jid, match[1]);
-    await message.client.sendMessage(message.jid,Lang.SUC_SNAME + match[1],MessageType.text);
+    await message.client.sendMessage(message.jid,Lang.SUC_SNAME + ` ${match[1]}`,MessageType.text);
     }
 ));
 
