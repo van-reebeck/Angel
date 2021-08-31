@@ -5,6 +5,7 @@ let FilterDb = require('./sql/filters');
 let Language = require('../language');
 let FLang = Language.getString('filters');
 let Lang = Language.getString('admin');
+let td = Config.WORKTYPE == 'public' ? false : true
 
  async function checkUsAdmin(message, user = message.data.participant) {
     var grup = await message.client.groupMetadata(message.jid);
@@ -21,7 +22,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
     return sonuc.includes(true);
 }
 
-WhatsAlexa.addCommand({pattern: 'kick ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.BAN_DESC}, (async (message, match) => {  
+WhatsAlexa.addCommand({pattern: 'kick ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.BAN_DESC}, (async (message, match) => {  
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -61,7 +62,7 @@ WhatsAlexa.addCommand({pattern: 'kick ?(.*)', fromMe: false, onlyGroup: true, de
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'add(?: |$)(.*)', fromMe: false, onlyGroup: true, desc: Lang.ADD_DESC}, (async (message, match) => {  
+WhatsAlexa.addCommand({pattern: 'add(?: |$)(.*)', fromMe: td, onlyGroup: true, desc: Lang.ADD_DESC}, (async (message, match) => {  
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -77,7 +78,7 @@ WhatsAlexa.addCommand({pattern: 'add(?: |$)(.*)', fromMe: false, onlyGroup: true
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'promote ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.PROMOTE_DESC}, (async (message, match) => {    
+WhatsAlexa.addCommand({pattern: 'promote ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.PROMOTE_DESC}, (async (message, match) => {    
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -137,7 +138,7 @@ WhatsAlexa.addCommand({pattern: 'promote ?(.*)', fromMe: false, onlyGroup: true,
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'demote ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.DEMOTE_DESC}, (async (message, match) => {    
+WhatsAlexa.addCommand({pattern: 'demote ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.DEMOTE_DESC}, (async (message, match) => {    
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -197,7 +198,7 @@ WhatsAlexa.addCommand({pattern: 'demote ?(.*)', fromMe: false, onlyGroup: true, 
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'closegc ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.MUTE_DESC}, (async (message, match) => {    
+WhatsAlexa.addCommand({pattern: 'closegc ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.MUTE_DESC}, (async (message, match) => {    
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -213,7 +214,7 @@ WhatsAlexa.addCommand({pattern: 'closegc ?(.*)', fromMe: false, onlyGroup: true,
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'opengc ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.UNMUTE_DESC}, (async (message, match) => {    
+WhatsAlexa.addCommand({pattern: 'opengc ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.UNMUTE_DESC}, (async (message, match) => {    
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -229,7 +230,7 @@ WhatsAlexa.addCommand({pattern: 'opengc ?(.*)', fromMe: false, onlyGroup: true, 
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'linkgc ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.INVITE_DESC}, (async (message, match) => {    
+WhatsAlexa.addCommand({pattern: 'linkgc ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.INVITE_DESC}, (async (message, match) => {    
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -239,7 +240,7 @@ WhatsAlexa.addCommand({pattern: 'linkgc ?(.*)', fromMe: false, onlyGroup: true, 
     await message.client.sendMessage(message.jid,Lang.INVITE + ' https://chat.whatsapp.com/' + invite, MessageType.text);
 }));
 
-WhatsAlexa.addCommand({pattern: 'filter ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.FILTER_DESC}, (async (message, match) => {
+WhatsAlexa.addCommand({pattern: 'filter ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.FILTER_DESC}, (async (message, match) => {
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
  
@@ -263,7 +264,7 @@ WhatsAlexa.addCommand({pattern: 'filter ?(.*)', fromMe: false, onlyGroup: true, 
     }
 }));
 
-WhatsAlexa.addCommand({pattern: 'stop ?(.*)', fromMe: false, onlyGroup: true, desc: Lang.STOP_DESC}, (async (message, match) => {
+WhatsAlexa.addCommand({pattern: 'stop ?(.*)', fromMe: td, onlyGroup: true, desc: Lang.STOP_DESC}, (async (message, match) => {
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
  
@@ -295,7 +296,7 @@ WhatsAlexa.addCommand({on: 'text', fromMe: false}, (async (message, match) => {
     );
 }));
 
-WhatsAlexa.addCommand({pattern: 'setname ?(.*)', onlyGroup: true, fromMe: false, desc: Lang.SET_NAME_DESC}, (async (message, match) => {
+WhatsAlexa.addCommand({pattern: 'setname ?(.*)', onlyGroup: true, fromMe: td, desc: Lang.SET_NAME_DESC}, (async (message, match) => {
     var im = await checkImAdmin(message);
     var us = await checkUsAdmin(message);
     if (!us) return await message.client.sendMessage(message.jid,Lang.USER_NOT_ADMIN ,MessageType.text);
@@ -303,7 +304,7 @@ WhatsAlexa.addCommand({pattern: 'setname ?(.*)', onlyGroup: true, fromMe: false,
     
     if (match[1] === '') return await message.client.sendMessage(message.jid,Lang.S_NEED_WORD,MessageType.text);
     await message.client.groupUpdateSubject(message.jid, match[1]);
-    await message.client.sendMessage(message.jid,Lang.SUC_SNAME + match[1],MessageType.text);
+    await message.client.sendMessage(message.jid,Lang.SUC_SNAME + ` ${match[1]}`,MessageType.text);
     }
 ));
 
