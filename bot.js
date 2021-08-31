@@ -279,7 +279,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
         }
     }, 7890);
     
-    setInterval(async () => { 
+/*    setInterval(async () => { 
         var getGMTh = new Date().getHours()
         var getGMTm = new Date().getMinutes()
         
@@ -307,7 +307,7 @@ ${chalk.blue.italic('Made By TOXIC-DEVIL')}`);
                 }
             }
         }
-    }, 50000);
+    }, 50000); */
     
     conn.on('message-new', async msg => {
         if (msg.key && msg.key.remoteJid == 'status@broadcast') return;
